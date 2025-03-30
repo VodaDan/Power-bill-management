@@ -4,6 +4,8 @@ package com.pm.customerservice.module;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +31,7 @@ public class Customer {
     private String address;
 
     @NotNull
-    private String registerDate;
+    private LocalDate registerDate;
 
 //    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
 //    private List<Bill> bills = new ArrayList<>();
@@ -67,11 +69,11 @@ public class Customer {
         this.address = address;
     }
 
-    public String getRegisterDate() {
+    public LocalDate getRegisterDate() {
         return registerDate;
     }
 
-    public void setRegisterDate(String registerDate) {
+    public void setRegisterDate(LocalDate registerDate) {
         this.registerDate = registerDate;
     }
 }
