@@ -49,4 +49,12 @@ public class CustomerService {
 
         return CustomerMapper.toDTO(updatedCustomer);
     }
+
+    public CustomerResponseDTO deleteCustomer(UUID id) {
+        Customer customer = customerRepository.findById(id).orElseThrow(() -> new CustomerNotFoundException("Customer not found!"));
+        CustomerResponseDTO customerResponseDTO = CustomerMapper.toDTO(customer);
+        customerRepository.deleteById(id);
+
+        return customerResponseDTO;
+    }
 }

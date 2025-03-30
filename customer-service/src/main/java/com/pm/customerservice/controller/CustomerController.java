@@ -2,6 +2,7 @@ package com.pm.customerservice.controller;
 
 import com.pm.customerservice.dto.CustomerRequestDTO;
 import com.pm.customerservice.dto.CustomerResponseDTO;
+import com.pm.customerservice.mapper.CustomerMapper;
 import com.pm.customerservice.module.Customer;
 import com.pm.customerservice.service.CustomerService;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +37,13 @@ public class CustomerController {
     @PutMapping("/{id}")
     public ResponseEntity<CustomerResponseDTO> updateCustomer(@PathVariable UUID id , @RequestBody CustomerRequestDTO customerRequestDTO) {
         CustomerResponseDTO customerResponseDTO = customerService.updateCustomer(id,customerRequestDTO);
+        return ResponseEntity.ok().body(customerResponseDTO);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<CustomerResponseDTO> deleteCustomer(@PathVariable UUID id) {
+        CustomerResponseDTO customerResponseDTO = customerService.deleteCustomer(id);
+
         return ResponseEntity.ok().body(customerResponseDTO);
     }
 }
