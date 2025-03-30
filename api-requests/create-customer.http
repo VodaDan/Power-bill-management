@@ -5,7 +5,7 @@ Content-Type: application/json
 {
   "name": "Pop Ion",
   "email": "pop.ion@yahoo.com",
-  "address": "Parcu Iuliu Prodan 20 , banca 4",
+  "address": "newAddress",
   "registerDate": "2024-04-25"
 }
 
