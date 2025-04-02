@@ -26,5 +26,10 @@ public class BillingGrpcServiceClient {
         return  billingResponse;
     }
 
+    public billing.BillingResponse getBillsById (String customerId) {
+        billing.GetBillsByIdRequest getBillsByIdRequest = billing.GetBillsByIdRequest.newBuilder().setCustomerId(customerId).build();
+        billing.BillingResponse billingResponse = blockingStub.getBillsById(getBillsByIdRequest);
+    }
+
 
 }
