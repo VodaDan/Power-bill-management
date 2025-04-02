@@ -41,7 +41,7 @@ public class BillingService {
         return bill;
     }
 
-    public List<Bill> getBills(billing.BillingRequest billingRequest) {
+    public List<Bill> getBills(billing.GetBillsByIdRequest billingRequest) {
         List<Bill> bills = billRepository.findByCustomerId(UUID.fromString(billingRequest.getCustomerId()));
         return bills;
     }

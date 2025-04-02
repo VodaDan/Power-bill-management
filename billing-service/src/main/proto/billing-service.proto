@@ -19,6 +19,7 @@ message BillingResponse {
   string issueDate = 2;
   string dueDate = 3;
   string status =4;
+  string amount = 5;
 }
 
 message GetBillsByIdRequest {

@@ -49,15 +49,29 @@ public class BillingGrpcService  extends BillingServiceGrpc.BillingServiceImplBa
     // Call billingService , will return an arrayList of Bill
     // Add bills to BillingResponseList
     @Override
-    public BillingResponseList getBillsById(billing.GetBillsByIdRequest billsByIdRequest , StreamObserver<billing.BillingResponse> streamObserver) {
-       List<BillResponseDTO> bills = new ArrayList<>();
+    public void getBillsById(billing.GetBillsByIdRequest billsByIdRequest , StreamObserver<billing.BillingResponseList> streamObserver) {
+       List<BillingResponse> bills = new ArrayList<>();
 
-        for(Bill bill : billingService.getBills()) {
-        bills.add(BillMapper.toDTO(bill)) ;
+        for(Bill bill : billingService.getBills(billsByIdRequest)) {
+            billing.BillingResponse response = billing.BillingResponse.newBuilder()
+                            .setId(bill.getId().toString())
+                            .setDueDate(bill.getDueDate().toString())
+                            .setIssueDate(bill.getIssueDate().toString())
+                            .setAmount(String.valueOf(bill.getAmount()))
+                            .setStatus("ACTIVE")
+                            .build();
+
+                            /// Add amount also in the feature.
+                            log.info("New Response:{}",response);
+        bills.add(response) ;
         }
 
-        BillingListResponse response = BillingListResponse.newBuilder()
+        billing.BillingResponseList responseList = billing.BillingResponseList.newBuilder()
                 .addAllBills(bills)  // Add all bills to the response
                 .build();
+
+        log.info("Bills sent : {}",responseList);
+        streamObserver.onNext(responseList);
+        streamObserver.onCompleted();
     }
 }
