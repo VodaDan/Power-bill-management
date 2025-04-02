@@ -29,6 +29,8 @@ public class BillingGrpcServiceClient {
     public billing.BillingResponse getBillsById (String customerId) {
         billing.GetBillsByIdRequest getBillsByIdRequest = billing.GetBillsByIdRequest.newBuilder().setCustomerId(customerId).build();
         billing.BillingResponse billingResponse = blockingStub.getBillsById(getBillsByIdRequest);
+        log.info("Received billing response from gRPC service for getBillsById{}",billingResponse);
+        return billingResponse;
     }
 
 

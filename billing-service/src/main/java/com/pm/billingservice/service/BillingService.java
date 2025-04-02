@@ -10,8 +10,11 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+
+import static org.hibernate.internal.util.collections.ArrayHelper.forEach;
 
 @Service
 public class BillingService {
@@ -38,4 +41,8 @@ public class BillingService {
         return bill;
     }
 
+    public List<Bill> getBills(billing.BillingRequest billingRequest) {
+        List<Bill> bills = billRepository.findByCustomerId(UUID.fromString(billingRequest.getCustomerId()));
+        return bills;
+    }
 }

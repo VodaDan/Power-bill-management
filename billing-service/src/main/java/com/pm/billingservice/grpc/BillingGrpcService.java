@@ -1,13 +1,20 @@
 package com.pm.billingservice.grpc;
 
+import billing.BillingResponse;
+import billing.BillingResponseList;
 import billing.BillingServiceGrpc;
 import com.pm.billingservice.dto.BillRequestDTO;
+import com.pm.billingservice.dto.BillResponseDTO;
+import com.pm.billingservice.mapper.BillMapper;
 import com.pm.billingservice.model.Bill;
 import com.pm.billingservice.service.BillingService;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @GrpcService
 public class BillingGrpcService  extends BillingServiceGrpc.BillingServiceImplBase {
@@ -36,5 +43,21 @@ public class BillingGrpcService  extends BillingServiceGrpc.BillingServiceImplBa
         streamObserver.onNext(billingResponse);
         streamObserver.onCompleted();
 
+    }
+
+
+    // Call billingService , will return an arrayList of Bill
+    // Add bills to BillingResponseList
+    @Override
+    public BillingResponseList getBillsById(billing.GetBillsByIdRequest billsByIdRequest , StreamObserver<billing.BillingResponse> streamObserver) {
+       List<BillResponseDTO> bills = new ArrayList<>();
+
+        for(Bill bill : billingService.getBills()) {
+        bills.add(BillMapper.toDTO(bill)) ;
+        }
+
+        BillingListResponse response = BillingListResponse.newBuilder()
+                .addAllBills(bills)  // Add all bills to the response
+                .build();
     }
 }

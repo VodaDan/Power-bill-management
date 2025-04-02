@@ -6,7 +6,7 @@ option java_package = "billing";
 
 service BillingService {
   rpc CreateBilling (BillingRequest) returns (BillingResponse);
-  rpc GetBillsById (GetBillsByIdRequest) returns (BillingResponse);
+  rpc GetBillsById (GetBillsByIdRequest) returns (BillingResponseList);
 }
 
 message BillingRequest {
@@ -23,4 +23,8 @@ message BillingResponse {
 
 message GetBillsByIdRequest {
   string customerId = 1;
+}
+
+message BillingResponseList {
+  repeated BillingResponse bills = 1;
 }
