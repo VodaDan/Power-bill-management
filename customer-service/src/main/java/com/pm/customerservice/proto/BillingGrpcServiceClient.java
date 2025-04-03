@@ -31,21 +31,29 @@ public class BillingGrpcServiceClient {
         return  billingResponse;
     }
 
-    public billing.BillingResponseList getBillsById(String customerId) {
-        // Create the request
-        billing.GetBillsByIdRequest getBillsByIdRequest = billing.GetBillsByIdRequest.newBuilder().setCustomerId(customerId).build();
+    public BillingResponseList getBillsById(String customerId) {
 
-        // Call the gRPC method to get the response
-        billing.BillingResponseList responseList = blockingStub.getBillsById(getBillsByIdRequest);
+        GetBillsByIdRequest getBillsByIdRequest = GetBillsByIdRequest.newBuilder().setCustomerId(customerId).build();
 
-        // Iterate over the list of BillingResponse and log each bill (optional)
-        for (billing.BillingResponse bill : responseList.getBillsList()) {
+        BillingResponseList responseList = blockingStub.getBillsById(getBillsByIdRequest);
+
+        // Iterate over the list of BillingResponse and log each bill
+        for (BillingResponse bill : responseList.getBillsList()) {
             log.info("Received bill with ID: {}, Issue Date: {}, Due Date: {}, Status: {}",
                     bill.getId(), bill.getIssueDate(), bill.getDueDate(), bill.getStatus());
         }
 
         // Return the response list
         return responseList;
+    }
+
+    public DeleteBillResponse deleteBillById (String id) {
+        DeleteBillByIdRequest request = DeleteBillByIdRequest.newBuilder().setId(id).build();
+
+        DeleteBillResponse response = blockingStub.deteleBillById(request);
+
+        log.info("Response recevied : {}", response);
+        return response;
     }
 
 

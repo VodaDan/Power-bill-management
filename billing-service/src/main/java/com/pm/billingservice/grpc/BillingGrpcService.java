@@ -82,6 +82,13 @@ public class BillingGrpcService  extends BillingServiceGrpc.BillingServiceImplBa
                     .build();
             streamObserver.onNext(response);
             streamObserver.onCompleted();
+        } else {
+            DeleteBillResponse response = DeleteBillResponse.newBuilder()
+                    .setStatus(true)
+                    .setMessage("Bill with id: " + String.valueOf(request.getId()) + " couldn't be deleted!")
+                    .build();
+            streamObserver.onNext(response);
+            streamObserver.onCompleted();
         }
     }
 

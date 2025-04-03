@@ -54,9 +54,9 @@ public class BillingService {
         boolean status = false;
        if( billRepository.findById(UUID.fromString(request.getId())).isEmpty() ) {
            log.info("Couldn't find a bill with id: {}" , request.getId());
-           status = true;
        } else {
            billRepository.deleteById(UUID.fromString(request.getId()));
+           status = true;
        }
 
        return status;

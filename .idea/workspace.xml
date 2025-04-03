@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e01aa297-0557-4625-89c5-7268c2b2e9e6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/billing-service/src/main/java/com/pm/billingservice/grpc/BillingGrpcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/billing-service/src/main/java/com/pm/billingservice/grpc/BillingGrpcService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/billing-service/src/main/java/com/pm/billingservice/service/BillingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/billing-service/src/main/java/com/pm/billingservice/service/BillingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-service/src/main/java/com/pm/customerservice/proto/BillingGrpcServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/src/main/java/com/pm/customerservice/proto/BillingGrpcServiceClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +79,7 @@
     "HTTP Request.All in get-customers.executor": "Run",
     "HTTP Request.All in update-customer.executor": "Run",
     "HTTP Request.create-bill | #1.executor": "Run",
+    "HTTP Request.delete-bill | #1.executor": "Run",
     "HTTP Request.get-bills | #1.executor": "Run",
     "HTTP Request.get-customers | GET request to retrive customers.executor": "Run",
     "JUnit.CustomerControllerTest.executor": "Run",
@@ -132,10 +134,10 @@
     <configuration name="All in get-bills" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/grpc-request/get-bills.http">
       <method v="2" />
     </configuration>
-    <configuration name="All in get-customers" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/api-requests/get-customers.http">
+    <configuration name="create-bill | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/grpc-request/create-bill.http" executionIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="create-bill | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/grpc-request/create-bill.http" executionIdentifier="#1" runType="Run single request">
+    <configuration name="delete-bill | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/grpc-request/delete-bill.http" executionIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="get-bills | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/grpc-request/get-bills.http" executionIdentifier="#1" runType="Run single request">
@@ -345,20 +347,20 @@
       <item itemvalue="Docker.customer-service-db" />
       <item itemvalue="Docker.customer-service" />
       <item itemvalue="HTTP Request.All in get-bills" />
+      <item itemvalue="HTTP Request.delete-bill | #1" />
       <item itemvalue="HTTP Request.get-bills | #1" />
       <item itemvalue="HTTP Request.All in create-bill" />
       <item itemvalue="HTTP Request.create-bill | #1" />
-      <item itemvalue="HTTP Request.All in get-customers" />
       <item itemvalue="Spring Boot.BillingServiceApplication" />
       <item itemvalue="Spring Boot.CustomerServiceApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.delete-bill | #1" />
+        <item itemvalue="HTTP Request.create-bill | #1" />
         <item itemvalue="HTTP Request.get-bills | #1" />
         <item itemvalue="HTTP Request.All in get-bills" />
-        <item itemvalue="HTTP Request.create-bill | #1" />
         <item itemvalue="HTTP Request.All in create-bill" />
-        <item itemvalue="HTTP Request.All in get-customers" />
       </list>
     </recent_temporary>
   </component>
@@ -395,7 +397,7 @@
       <workItem from="1743627107693" duration="281000" />
       <workItem from="1743627400840" duration="409000" />
       <workItem from="1743627819463" duration="277000" />
-      <workItem from="1743628119480" duration="8847000" />
+      <workItem from="1743628119480" duration="10036000" />
     </task>
     <servers />
   </component>
