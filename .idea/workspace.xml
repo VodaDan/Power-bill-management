@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e01aa297-0557-4625-89c5-7268c2b2e9e6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/billing-service/src/main/java/com/pm/billingservice/grpc/BillingGrpcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/billing-service/src/main/java/com/pm/billingservice/grpc/BillingGrpcService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/billing-service/src/main/proto/billing-service.proto" beforeDir="false" afterPath="$PROJECT_DIR$/billing-service/src/main/proto/billing-service.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer-service/src/main/proto/billing-service.proto" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/src/main/proto/billing-service.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grpc-request/get-bills.http" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-request/get-bills.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/billing-service/src/main/java/com/pm/billingservice/service/BillingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/billing-service/src/main/java/com/pm/billingservice/service/BillingService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +100,7 @@
     "Spring Boot.BillingServiceApplication.executor": "Run",
     "Spring Boot.CustomerServiceApplication (1).executor": "Run",
     "Spring Boot.CustomerServiceApplication.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feature/deleteBill",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Java/Power-bill-management/customer-service/src/main/proto",
     "node.js.detected.package.eslint": "true",
@@ -398,7 +395,7 @@
       <workItem from="1743627107693" duration="281000" />
       <workItem from="1743627400840" duration="409000" />
       <workItem from="1743627819463" duration="277000" />
-      <workItem from="1743628119480" duration="7146000" />
+      <workItem from="1743628119480" duration="8847000" />
     </task>
     <servers />
   </component>

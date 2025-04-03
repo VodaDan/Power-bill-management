@@ -44,35 +44,55 @@ public class BillingGrpcService  extends BillingServiceGrpc.BillingServiceImplBa
     }
 
 
-
     @Override
-    public void getBillsById(GetBillsByIdRequest billsByIdRequest , StreamObserver<BillingResponseList> streamObserver) {
-       List<BillingResponse> bills = new ArrayList<>();
-        if(!bills.isEmpty()) {
-            for(Bill bill : billingService.getBills(billsByIdRequest)) {
+    public void getBillsById(GetBillsByIdRequest billsByIdRequest, StreamObserver<BillingResponseList> streamObserver) {
+        List<BillingResponse> bills = new ArrayList<>();
+        if (!bills.isEmpty()) {
+            for (Bill bill : billingService.getBills(billsByIdRequest)) {
                 BillingResponse response = BillingResponse.newBuilder()
-                                .setId(bill.getId().toString())
-                                .setDueDate(bill.getDueDate().toString())
-                                .setIssueDate(bill.getIssueDate().toString())
-                                .setAmount(String.valueOf(bill.getAmount()))
-                                .setStatus("ACTIVE")
-                                .build();
+                        .setId(bill.getId().toString())
+                        .setDueDate(bill.getDueDate().toString())
+                        .setIssueDate(bill.getIssueDate().toString())
+                        .setAmount(String.valueOf(bill.getAmount()))
+                        .setStatus("ACTIVE")
+                        .build();
 
-                                /// Add amount also in the feature.
-                                log.info("New Response:{}",response);
-            bills.add(response) ;
+                log.info("New Response:{}", response);
+                bills.add(response);
             }
-
-
         } else {
-            log.warn("No bills for customerId:{} found",String.valueOf(billsByIdRequest.getCustomerId()));
+            log.warn("No bills for customerId:{} found", String.valueOf(billsByIdRequest.getCustomerId()));
         }
         BillingResponseList responseList = BillingResponseList.newBuilder()
-                .addAllBills(bills)  // Add all bills to the response
+                .addAllBills(bills)
                 .build();
 
-        log.info("Bills sent : {}",responseList);
+        log.info("Bills sent : {}", responseList);
         streamObserver.onNext(responseList);
         streamObserver.onCompleted();
     }
+
+    @Override
+    public void deteleBillById(DeleteBillByIdRequest request, StreamObserver<DeleteBillResponse> streamObserver) {
+
+        if(billingService.deleteBill(request)){
+            DeleteBillResponse response = DeleteBillResponse.newBuilder()
+                    .setStatus(true)
+                    .setMessage("Bill with id: " + String.valueOf(request.getId()) + " deleted successfull!")
+                    .build();
+            streamObserver.onNext(response);
+            streamObserver.onCompleted();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
