@@ -1,6 +1,6 @@
 package com.pm.billingservice.grpc;
 
-import billing.BillingResponse;
+import billing.*;
 import billing.BillingResponseList;
 import billing.BillingServiceGrpc;
 import com.pm.billingservice.dto.BillRequestDTO;
@@ -27,13 +27,12 @@ public class BillingGrpcService  extends BillingServiceGrpc.BillingServiceImplBa
     }
 
     @Override
-    public void createBilling (billing.BillingRequest billingRequest , StreamObserver<billing.BillingResponse> streamObserver) {
+    public void createBilling (BillingRequest billingRequest , StreamObserver<BillingResponse> streamObserver) {
         log.info("CreateBilling request has been received! {}",billingRequest.toString());
 
         Bill bill = billingService.createBill(billingRequest);
 
-        // Billing Response for gRPC
-        billing.BillingResponse billingResponse = billing.BillingResponse.newBuilder()
+        BillingResponse billingResponse = BillingResponse.newBuilder()
                 .setId(bill.getId().toString())
                 .setIssueDate(bill.getIssueDate().toString())
                 .setDueDate(bill.getDueDate().toString())
@@ -42,31 +41,33 @@ public class BillingGrpcService  extends BillingServiceGrpc.BillingServiceImplBa
 
         streamObserver.onNext(billingResponse);
         streamObserver.onCompleted();
-
     }
 
 
-    // Call billingService , will return an arrayList of Bill
-    // Add bills to BillingResponseList
+
     @Override
-    public void getBillsById(billing.GetBillsByIdRequest billsByIdRequest , StreamObserver<billing.BillingResponseList> streamObserver) {
+    public void getBillsById(GetBillsByIdRequest billsByIdRequest , StreamObserver<BillingResponseList> streamObserver) {
        List<BillingResponse> bills = new ArrayList<>();
+        if(!bills.isEmpty()) {
+            for(Bill bill : billingService.getBills(billsByIdRequest)) {
+                BillingResponse response = BillingResponse.newBuilder()
+                                .setId(bill.getId().toString())
+                                .setDueDate(bill.getDueDate().toString())
+                                .setIssueDate(bill.getIssueDate().toString())
+                                .setAmount(String.valueOf(bill.getAmount()))
+                                .setStatus("ACTIVE")
+                                .build();
 
-        for(Bill bill : billingService.getBills(billsByIdRequest)) {
-            billing.BillingResponse response = billing.BillingResponse.newBuilder()
-                            .setId(bill.getId().toString())
-                            .setDueDate(bill.getDueDate().toString())
-                            .setIssueDate(bill.getIssueDate().toString())
-                            .setAmount(String.valueOf(bill.getAmount()))
-                            .setStatus("ACTIVE")
-                            .build();
+                                /// Add amount also in the feature.
+                                log.info("New Response:{}",response);
+            bills.add(response) ;
+            }
 
-                            /// Add amount also in the feature.
-                            log.info("New Response:{}",response);
-        bills.add(response) ;
+
+        } else {
+            log.warn("No bills for customerId:{} found",String.valueOf(billsByIdRequest.getCustomerId()));
         }
-
-        billing.BillingResponseList responseList = billing.BillingResponseList.newBuilder()
+        BillingResponseList responseList = BillingResponseList.newBuilder()
                 .addAllBills(bills)  // Add all bills to the response
                 .build();
 

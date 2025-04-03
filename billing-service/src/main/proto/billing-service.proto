@@ -7,6 +7,7 @@ option java_package = "billing";
 service BillingService {
   rpc CreateBilling (BillingRequest) returns (BillingResponse);
   rpc GetBillsById (GetBillsByIdRequest) returns (BillingResponseList);
+  rpc DeteleBillById (DeleteBillByIdRequest) returns (DeleteBillResponse);
 }
 
 message BillingRequest {
@@ -28,4 +29,13 @@ message GetBillsByIdRequest {
 
 message BillingResponseList {
   repeated BillingResponse bills = 1;
+}
+
+message DeleteBillByIdRequest {
+  string Id = 1;
+}
+
+message DeleteBillResponse {
+  string message = 1;
+  bool status = 2;
 }
