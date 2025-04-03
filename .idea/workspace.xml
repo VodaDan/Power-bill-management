@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/billing-service/src/main/java/com/pm/billingservice/grpc/BillingGrpcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/billing-service/src/main/java/com/pm/billingservice/grpc/BillingGrpcService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer-service/src/main/java/com/pm/customerservice/proto/BillingGrpcServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/src/main/java/com/pm/customerservice/proto/BillingGrpcServiceClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -397,7 +396,7 @@
       <workItem from="1743627107693" duration="281000" />
       <workItem from="1743627400840" duration="409000" />
       <workItem from="1743627819463" duration="277000" />
-      <workItem from="1743628119480" duration="10036000" />
+      <workItem from="1743628119480" duration="16452000" />
     </task>
     <servers />
   </component>
