@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e01aa297-0557-4625-89c5-7268c2b2e9e6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/billing-service/src/main/java/com/pm/billingservice/grpc/BillingGrpcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/billing-service/src/main/java/com/pm/billingservice/grpc/BillingGrpcService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +40,8 @@
         <option value="Exception" />
         <option value="Interface" />
         <option value="Dockerfile" />
-        <option value="Class" />
         <option value="HTTP Request" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -84,6 +82,7 @@
     "JUnit.CustomerControllerTest.executor": "Run",
     "JUnit.CustomerControllerTest.testGetCustomer.executor": "Run",
     "JUnit.CustomerControllerTest.testUpdateCustomer_AddressAlreadyExists.executor": "Run",
+    "JUnit.GetCustomersUnitTests.executor": "Run",
     "Maven.billing-service [clean].executor": "Run",
     "Maven.billing-service [compile].executor": "Run",
     "Maven.billing-service [validate].executor": "Run",
@@ -101,7 +100,7 @@
     "Spring Boot.BillingServiceApplication.executor": "Run",
     "Spring Boot.CustomerServiceApplication (1).executor": "Run",
     "Spring Boot.CustomerServiceApplication.executor": "Run",
-    "git-widget-placeholder": "feature/deleteBill",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Java/Power-bill-management/customer-service/src/main/proto",
     "node.js.detected.package.eslint": "true",
@@ -126,10 +125,7 @@
       <recent name="D:\Java\Power-bill-management\customer-service\src\main\proto" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.billing-service">
-    <configuration name="All in create-bill" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/grpc-request/create-bill.http">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JUnit.GetCustomersUnitTests">
     <configuration name="All in get-bills" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/grpc-request/get-bills.http">
       <method v="2" />
     </configuration>
@@ -141,6 +137,21 @@
     </configuration>
     <configuration name="get-bills | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/grpc-request/get-bills.http" executionIdentifier="#1" runType="Run single request">
       <method v="2" />
+    </configuration>
+    <configuration name="GetCustomersUnitTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="customer-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pm.customerservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.pm.customerservice" />
+      <option name="MAIN_CLASS_NAME" value="com.pm.customerservice.GetCustomersUnitTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="BillingServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -348,18 +359,18 @@
       <item itemvalue="HTTP Request.All in get-bills" />
       <item itemvalue="HTTP Request.delete-bill | #1" />
       <item itemvalue="HTTP Request.get-bills | #1" />
-      <item itemvalue="HTTP Request.All in create-bill" />
       <item itemvalue="HTTP Request.create-bill | #1" />
+      <item itemvalue="JUnit.GetCustomersUnitTests" />
       <item itemvalue="Spring Boot.BillingServiceApplication" />
       <item itemvalue="Spring Boot.CustomerServiceApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GetCustomersUnitTests" />
         <item itemvalue="HTTP Request.delete-bill | #1" />
         <item itemvalue="HTTP Request.create-bill | #1" />
         <item itemvalue="HTTP Request.get-bills | #1" />
         <item itemvalue="HTTP Request.All in get-bills" />
-        <item itemvalue="HTTP Request.All in create-bill" />
       </list>
     </recent_temporary>
   </component>
@@ -397,6 +408,7 @@
       <workItem from="1743627400840" duration="409000" />
       <workItem from="1743627819463" duration="277000" />
       <workItem from="1743628119480" duration="16452000" />
+      <workItem from="1743695861862" duration="5066000" />
     </task>
     <servers />
   </component>
