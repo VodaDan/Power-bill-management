@@ -30,13 +30,16 @@ public class GetCustomersUnitTests {
     @Test
     public void getCustomersHappyFlow() {
 
+        //Arrange
         Customer customer = createMockCustomer();
         CustomerResponseDTO customerResponseDTO = createMockCustomerResponseDTO();
 
         given(customerRepository.findAll()).willReturn(Arrays.asList(customer));
 
+        //Act
         List<CustomerResponseDTO> response = customerService.getCustomers();
 
+        //Assert
         assertNotNull(response, "Response should not be null");
         assertFalse(response.isEmpty(), "Response should not be empty");
 

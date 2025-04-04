@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e01aa297-0557-4625-89c5-7268c2b2e9e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-service/src/test/java/com/pm/customerservice/GetCustomersUnitTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/src/test/java/com/pm/customerservice/GetCustomersUnitTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,83 +61,95 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Docker.bill-service-db.executor": "Run",
-    "Docker.bill-service.executor": "Run",
-    "Docker.billing-service-db.executor": "Run",
-    "Docker.billing-service.executor": "Run",
-    "Docker.customer-service-db.executor": "Run",
-    "Docker.customer-service.executor": "Run",
-    "Gradle.Build customer-service.executor": "Run",
-    "HTTP Request.All in create-bill.executor": "Run",
-    "HTTP Request.All in create-customer.executor": "Run",
-    "HTTP Request.All in delete-customer.executor": "Run",
-    "HTTP Request.All in get-bills.executor": "Run",
-    "HTTP Request.All in get-customers.executor": "Run",
-    "HTTP Request.All in update-customer.executor": "Run",
-    "HTTP Request.create-bill | #1.executor": "Run",
-    "HTTP Request.delete-bill | #1.executor": "Run",
-    "HTTP Request.get-bills | #1.executor": "Run",
-    "HTTP Request.get-customers | GET request to retrive customers.executor": "Run",
-    "JUnit.CustomerControllerTest.executor": "Run",
-    "JUnit.CustomerControllerTest.testGetCustomer.executor": "Run",
-    "JUnit.CustomerControllerTest.testUpdateCustomer_AddressAlreadyExists.executor": "Run",
-    "JUnit.GetCustomersUnitTests.executor": "Run",
-    "Maven.billing-service [clean].executor": "Run",
-    "Maven.billing-service [compile].executor": "Run",
-    "Maven.billing-service [validate].executor": "Run",
-    "Maven.customer-service [clean].executor": "Run",
-    "Maven.customer-service [compile].executor": "Run",
-    "Maven.customer-service [package].executor": "Run",
-    "Maven.customer-service [validate].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.BillingServiceApplication.executor": "Run",
-    "Spring Boot.CustomerServiceApplication (1).executor": "Run",
-    "Spring Boot.CustomerServiceApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Java/Power-bill-management/customer-service/src/main/proto",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.1150748",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.bill-service-db.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.bill-service.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.billing-service-db.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.billing-service.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.customer-service-db.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.customer-service.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build customer-service.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in create-bill.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in create-customer.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in delete-customer.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in get-bills.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in get-customers.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in update-customer.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.create-bill | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.delete-bill | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.get-bills | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.get-customers | GET request to retrive customers.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerControllerTest.testGetCustomer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerControllerTest.testUpdateCustomer_AddressAlreadyExists.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomerRepositoryUnitTests.CustomerRepositorySaveReturnCustomer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GetCustomersUnitTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GetCustomersUnitTests.getCustomersHappyFlow.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.billing-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.billing-service [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.billing-service [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.customer-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.customer-service [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.customer-service [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.customer-service [validate].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BillingServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.CustomerServiceApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.CustomerServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java/Power-bill-management/customer-service/src/main/proto&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.1150748&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Java\Power-bill-management\customer-service\src\main\proto" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GetCustomersUnitTests">
-    <configuration name="All in get-bills" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/grpc-request/get-bills.http">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JUnit.CustomerRepositoryUnitTests.CustomerRepositorySaveReturnCustomer">
     <configuration name="create-bill | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/grpc-request/create-bill.http" executionIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="delete-bill | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/grpc-request/delete-bill.http" executionIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="get-bills | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/grpc-request/get-bills.http" executionIdentifier="#1" runType="Run single request">
-      <method v="2" />
+    <configuration name="CustomerRepositoryUnitTests.CustomerRepositorySaveReturnCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="customer-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pm.customerservice.controller.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.pm.customerservice.controller.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.pm.customerservice.controller.repository.CustomerRepositoryUnitTests" />
+      <option name="METHOD_NAME" value="CustomerRepositorySaveReturnCustomer" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="GetCustomersUnitTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="customer-service" />
@@ -149,6 +162,22 @@
       <option name="PACKAGE_NAME" value="com.pm.customerservice" />
       <option name="MAIN_CLASS_NAME" value="com.pm.customerservice.GetCustomersUnitTests" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetCustomersUnitTests.getCustomersHappyFlow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="customer-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pm.customerservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.pm.customerservice" />
+      <option name="MAIN_CLASS_NAME" value="com.pm.customerservice.GetCustomersUnitTests" />
+      <option name="METHOD_NAME" value="getCustomersHappyFlow" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -356,21 +385,21 @@
       <item itemvalue="Docker.billing-service" />
       <item itemvalue="Docker.customer-service-db" />
       <item itemvalue="Docker.customer-service" />
-      <item itemvalue="HTTP Request.All in get-bills" />
       <item itemvalue="HTTP Request.delete-bill | #1" />
-      <item itemvalue="HTTP Request.get-bills | #1" />
       <item itemvalue="HTTP Request.create-bill | #1" />
+      <item itemvalue="JUnit.CustomerRepositoryUnitTests.CustomerRepositorySaveReturnCustomer" />
+      <item itemvalue="JUnit.GetCustomersUnitTests.getCustomersHappyFlow" />
       <item itemvalue="JUnit.GetCustomersUnitTests" />
       <item itemvalue="Spring Boot.BillingServiceApplication" />
       <item itemvalue="Spring Boot.CustomerServiceApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CustomerRepositoryUnitTests.CustomerRepositorySaveReturnCustomer" />
+        <item itemvalue="JUnit.GetCustomersUnitTests.getCustomersHappyFlow" />
         <item itemvalue="JUnit.GetCustomersUnitTests" />
         <item itemvalue="HTTP Request.delete-bill | #1" />
         <item itemvalue="HTTP Request.create-bill | #1" />
-        <item itemvalue="HTTP Request.get-bills | #1" />
-        <item itemvalue="HTTP Request.All in get-bills" />
       </list>
     </recent_temporary>
   </component>
@@ -408,7 +437,8 @@
       <workItem from="1743627400840" duration="409000" />
       <workItem from="1743627819463" duration="277000" />
       <workItem from="1743628119480" duration="16452000" />
-      <workItem from="1743695861862" duration="5066000" />
+      <workItem from="1743695861862" duration="5301000" />
+      <workItem from="1743704804281" duration="2846000" />
     </task>
     <servers />
   </component>
