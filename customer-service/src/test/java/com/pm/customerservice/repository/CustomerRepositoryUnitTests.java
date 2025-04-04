@@ -1,4 +1,4 @@
-package com.pm.customerservice.controller.repository;
+package com.pm.customerservice.repository;
 
 import com.pm.customerservice.module.Customer;
 import com.pm.customerservice.repository.CustomerRepository;

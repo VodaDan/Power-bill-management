@@ -1,9 +1,8 @@
-package com.pm.customerservice;
+package com.pm.customerservice.service;
 
 import com.pm.customerservice.dto.CustomerResponseDTO;
 import com.pm.customerservice.module.Customer;
 import com.pm.customerservice.repository.CustomerRepository;
-import com.pm.customerservice.service.CustomerService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

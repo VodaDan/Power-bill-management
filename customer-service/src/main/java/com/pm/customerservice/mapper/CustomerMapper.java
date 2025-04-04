@@ -26,4 +26,13 @@ public class CustomerMapper {
         customer.setRegisterDate(LocalDate.parse(customerRequestDTO.getRegisterDate()));
         return customer;
     }
+
+    public static CustomerRequestDTO toRequest(Customer customer){
+        CustomerRequestDTO request = new CustomerRequestDTO();
+        request.setName(customer.getName());
+        request.setEmail(customer.getEmail());
+        request.setAddress(customer.getAddress());
+        request.setRegisterDate(String.valueOf(customer.getRegisterDate()));
+        return request;
+    }
 }
