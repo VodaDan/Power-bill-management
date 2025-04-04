@@ -12,10 +12,11 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
@@ -25,7 +26,7 @@ public class CustomerRepositoryUnitTests {
     private CustomerRepository customerRepository;
 
     @Test
-    public v() {
+    public void CustomerRepositorySaveReturnCustomer() {
         Customer customer = createMockCustomer();
 
         Customer savedCustomer = customerRepository.save(customer);
@@ -33,17 +34,58 @@ public class CustomerRepositoryUnitTests {
         assertNotNull(savedCustomer);
         assertNotNull(savedCustomer.getId());
         assertEquals("Test name",savedCustomer.getName());
-        assertEquals("Test address",savedCustomer.getAddress());
-        assertEquals("Test email",savedCustomer.getEmail());
+        assertEquals(customer.getAddress(),savedCustomer.getAddress());
+        assertEquals("TestEmail@yahoo.com",savedCustomer.getEmail());
 
     }
+
+    @Test
+    public void CustomeRepositoryFindAllCustomers() {
+        Customer firstCustomer = createMockCustomer();
+        Customer secondCustomer = createMockCustomer();
+
+        customerRepository.save(firstCustomer);
+        customerRepository.save(secondCustomer);
+
+        List<Customer> customerList = customerRepository.findAll();
+
+        assertNotNull(customerList);
+        assertEquals(2,customerList.size());
+        
+
+    }
+
+    @Test
+    public void CustomerRepositoryFindById() {
+        Customer firstCustomer = createMockCustomer();
+        Customer secondCustomer = createMockCustomer();
+
+        customerRepository.save(firstCustomer);
+        customerRepository.save(secondCustomer);
+
+        Optional<Customer> findFirstCustomer = customerRepository.findById(firstCustomer.getId());
+
+        assertNotNull(findFirstCustomer);
+        assertEquals(firstCustomer.getId(),findFirstCustomer.get().getId());
+    }
+
+    @Test
+    public void CustomerRepositoryFindByIdNonExistentCustomer() {
+
+        // Passing a random UUID
+        Optional<Customer> findNonExistentCustomer = customerRepository.findById(UUID.randomUUID());
+
+        assertTrue(findNonExistentCustomer.isEmpty());
+    }
+
+    private static int addressCounter = 0 ;
 
     // Method to create a mock Customer object
     private Customer createMockCustomer() {
         Customer customer = new Customer();
         customer.setName("Test name");
-        customer.setAddress("Test address");
-        customer.setEmail("Test email");
+        customer.setAddress("Test address" + addressCounter++ );
+        customer.setEmail("TestEmail@yahoo.com");
         customer.setRegisterDate(LocalDate.now());
         return customer;
     }
