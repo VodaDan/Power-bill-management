@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e01aa297-0557-4625-89c5-7268c2b2e9e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/customer-service/src/test/java/com/pm/customerservice/controller/repository/CustomerRepositoryUnitTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/src/test/java/com/pm/customerservice/controller/repository/CustomerRepositoryUnitTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +86,9 @@
     "JUnit.CustomerControllerTest.testUpdateCustomer_AddressAlreadyExists.executor": "Run",
     "JUnit.CustomerRepositoryUnitTests.CustomeRepositoryFindAllCustomers.executor": "Run",
     "JUnit.CustomerRepositoryUnitTests.CustomerRepositoryFindById.executor": "Run",
+    "JUnit.CustomerRepositoryUnitTests.CustomerRepositoryFindByIdNonExistentCustomer.executor": "Run",
     "JUnit.CustomerRepositoryUnitTests.CustomerRepositorySaveReturnCustomer.executor": "Run",
+    "JUnit.CustomerRepositoryUnitTests.executor": "Run",
     "JUnit.GetCustomersUnitTests.executor": "Run",
     "JUnit.GetCustomersUnitTests.getCustomersHappyFlow.executor": "Run",
     "Maven.billing-service [clean].executor": "Run",
@@ -424,8 +427,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.CustomerRepositoryUnitTests" />
-        <item itemvalue="JUnit.CustomerRepositoryUnitTests.CustomerRepositoryFindByIdNonExistentCustomer" />
         <item itemvalue="JUnit.CustomerRepositoryUnitTests.CustomerRepositoryFindById" />
+        <item itemvalue="JUnit.CustomerRepositoryUnitTests.CustomerRepositoryFindByIdNonExistentCustomer" />
         <item itemvalue="JUnit.CustomerRepositoryUnitTests.CustomeRepositoryFindAllCustomers" />
         <item itemvalue="JUnit.CustomerRepositoryUnitTests.CustomerRepositorySaveReturnCustomer" />
       </list>
@@ -467,7 +470,7 @@
       <workItem from="1743628119480" duration="16452000" />
       <workItem from="1743695861862" duration="5301000" />
       <workItem from="1743704804281" duration="2846000" />
-      <workItem from="1743764567613" duration="1643000" />
+      <workItem from="1743764567613" duration="3163000" />
     </task>
     <servers />
   </component>

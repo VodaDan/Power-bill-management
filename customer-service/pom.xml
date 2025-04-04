@@ -147,6 +147,26 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version> <!-- Or latest version -->
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id> <!-- Unique execution id -->
+                        <goals>
+                            <goal>prepare-agent</goal> <!-- Adds the JaCoCo agent -->
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>generate-report</id> <!-- Unique execution id -->
+                        <goals>
+                            <goal>report</goal> <!-- Generates the code coverage report -->
+                        </goals>
+                        <phase>verify</phase> <!-- Ensure it's run after tests -->
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
