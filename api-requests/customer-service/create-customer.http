@@ -1,0 +1,12 @@
+### POST request to create a new customer
+POST http://localhost:4000/customers
+Content-Type: application/json
+
+{
+  "name": "Pop Ion",
+  "email": "pop.ion@yahoo.com",
+  "address": "newAddress",
+  "registerDate": "2024-04-25"
+}
+
+###

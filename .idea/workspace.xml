@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e01aa297-0557-4625-89c5-7268c2b2e9e6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/13daee55-b147-443b-9cf6-cf010d738a5e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/13daee55-b147-443b-9cf6-cf010d738a5e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/pm/authservice/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/pm/authservice/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/pm/authservice/services/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/pm/authservice/services/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/pm/authservice/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/pm/authservice/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-requests/create-customer.http" beforeDir="false" afterPath="$PROJECT_DIR$/api-requests/customer-service/create-customer.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-requests/delete-customer.http" beforeDir="false" afterPath="$PROJECT_DIR$/api-requests/customer-service/delete-customer.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-requests/get-customers.http" beforeDir="false" afterPath="$PROJECT_DIR$/api-requests/customer-service/get-customers.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-requests/update-customer.http" beforeDir="false" afterPath="$PROJECT_DIR$/api-requests/customer-service/update-customer.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/pm/authservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/pm/authservice/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/test/java/com/pm/authservice/AuthServiceApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,9 +50,9 @@
       <list>
         <option value="Exception" />
         <option value="Dockerfile" />
-        <option value="HTTP Request" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTTP Request" />
       </list>
     </option>
   </component>
@@ -65,6 +73,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Docker.auth-service-db.executor": "Run",
+    "Docker.auth-service.executor": "Run",
     "Docker.bill-service-db.executor": "Run",
     "Docker.bill-service.executor": "Run",
     "Docker.billing-service-db.executor": "Run",
@@ -82,6 +92,7 @@
     "HTTP Request.delete-bill | #1.executor": "Run",
     "HTTP Request.get-bills | #1.executor": "Run",
     "HTTP Request.get-customers | GET request to retrive customers.executor": "Run",
+    "HTTP Request.login-request | Login request for user authentication.executor": "Run",
     "JUnit.CustomerControllerTest.executor": "Run",
     "JUnit.CustomerControllerTest.testGetCustomer.executor": "Run",
     "JUnit.CustomerControllerTest.testUpdateCustomer_AddressAlreadyExists.executor": "Run",
@@ -114,7 +125,7 @@
     "Spring Boot.CustomerServiceApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Java/Patient-management",
+    "last_opened_file_path": "D:/Java/Power-bill-management/auth-service/Dockerfile",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -135,7 +146,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java\Power-bill-management\auth-service" />
       <recent name="D:\Java\Power-bill-management\customer-service\src\main\proto" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Java\Power-bill-management\api-requests\customer-service" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.pm.customerservice.service" />
@@ -152,24 +167,12 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.customer-service">
+  <component name="RunManager" selected="Docker.auth-service">
     <configuration name="All in get-customers" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/api-requests/get-customers.http">
       <method v="2" />
     </configuration>
-    <configuration name="CustomerRepositoryUnitTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="customer-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.pm.customerservice.controller.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.pm.customerservice.controller.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.pm.customerservice.controller.repository.CustomerRepositoryUnitTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="login-request | Login request for user authentication" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/api-requests/auth-service/login-request.http" executionIdentifier="Login request for user authentication" runType="Run single request">
+      <method v="2" />
     </configuration>
     <configuration name="CustomerServiceUnitTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="customer-service" />
@@ -240,6 +243,95 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="auth-service-db" type="docker-deploy" factoryName="docker-image" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="postgres:latest" />
+          <option name="containerName" value="auth-service-db" />
+          <option name="envVars">
+            <list>
+              <DockerEnvVarImpl>
+                <option name="name" value="POSTGRES_DB" />
+                <option name="value" value="db" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="POSTGRES_PASSWORD" />
+                <option name="value" value="password" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="POSTGRES_USER" />
+                <option name="value" value="admin_user" />
+              </DockerEnvVarImpl>
+            </list>
+          </option>
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="5432" />
+                <option name="hostPort" value="5002" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="commandLineOptions" value="--network internal" />
+          <option name="volumeBindings">
+            <list>
+              <DockerVolumeBindingImpl>
+                <option name="containerPath" value="/var/lib/postgresql/data" />
+                <option name="hostPath" value="$PROJECT_DIR$/../Docker/power-bill-management/db_volumes/auth-service-db" />
+              </DockerVolumeBindingImpl>
+            </list>
+          </option>
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="auth-service" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="auth-service:latest" />
+          <option name="containerName" value="auth-serviceCustomers" />
+          <option name="envVars">
+            <list>
+              <DockerEnvVarImpl>
+                <option name="name" value="JWT_SECRET" />
+                <option name="value" value="XUpOzxntvH2vRW+lzOYKXJgB/mwVcb6ni9S7Qz3xL6M=" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="SPRING_DATASOURCE_PASSWORD" />
+                <option name="value" value="password" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="SPRING_DATASOURCE_URL" />
+                <option name="value" value="jdbc:postgresql://auth-service-db:5432/db" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="SPRING_DATASOURCE_USERNAME" />
+                <option name="value" value="admin_user" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="SPRING_JPA_HIBERNATE_DDL_AUTO" />
+                <option name="value" value="update" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="SPRING_SQL_INIT_MODE" />
+                <option name="value" value="always" />
+              </DockerEnvVarImpl>
+            </list>
+          </option>
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="4002" />
+                <option name="hostPort" value="4002" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="commandLineOptions" value="--network internal" />
+          <option name="sourceFilePath" value="auth-service/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
     </configuration>
     <configuration name="billing-service-db" type="docker-deploy" factoryName="docker-image" server-name="Docker">
       <deployment type="docker-image">
@@ -427,9 +519,11 @@
       <item itemvalue="Docker.billing-service-db" />
       <item itemvalue="Docker.billing-service" />
       <item itemvalue="Docker.customer-service-db" />
+      <item itemvalue="Docker.auth-service-db" />
       <item itemvalue="Docker.customer-service" />
+      <item itemvalue="Docker.auth-service" />
+      <item itemvalue="HTTP Request.login-request | Login request for user authentication" />
       <item itemvalue="HTTP Request.All in get-customers" />
-      <item itemvalue="JUnit.CustomerRepositoryUnitTests" />
       <item itemvalue="JUnit.CustomerServiceUnitTests" />
       <item itemvalue="JUnit.CustomerServiceUnitTests.CustomerServiceUpdateCustomerReturnsUpdated" />
       <item itemvalue="JUnit.CustomerServiceUnitTests.CustomerServiceUpdateCustomerThrowsException" />
@@ -439,11 +533,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.login-request | Login request for user authentication" />
         <item itemvalue="HTTP Request.All in get-customers" />
         <item itemvalue="JUnit.CustomerServiceUnitTests" />
         <item itemvalue="JUnit.CustomerServiceUnitTests.CustomerServiceUpdateCustomerThrowsException" />
         <item itemvalue="JUnit.CustomerServiceUnitTests.CustomerServiceUpdateCustomerReturnsUpdated" />
-        <item itemvalue="JUnit.CustomerRepositoryUnitTests" />
       </list>
     </recent_temporary>
   </component>
@@ -487,7 +581,7 @@
       <workItem from="1743857854653" duration="364000" />
       <workItem from="1743858225110" duration="208000" />
       <workItem from="1743858440919" duration="7371000" />
-      <workItem from="1744122452454" duration="2791000" />
+      <workItem from="1744122452454" duration="4347000" />
     </task>
     <servers />
   </component>
