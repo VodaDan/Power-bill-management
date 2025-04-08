@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e01aa297-0557-4625-89c5-7268c2b2e9e6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer-service/src/main/java/com/pm/customerservice/mapper/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/src/main/java/com/pm/customerservice/mapper/CustomerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer-service/src/test/java/com/pm/customerservice/GetCustomersUnitTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/src/test/java/com/pm/customerservice/service/GetCustomersUnitTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer-service/src/test/java/com/pm/customerservice/controller/repository/CustomerRepositoryUnitTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/src/test/java/com/pm/customerservice/repository/CustomerRepositoryUnitTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/billing-service/src/test/java/com/pm/billingservice/BillingServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-service/src/test/java/com/pm/customerservice/service/CustomerServiceUnitTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/src/test/java/com/pm/customerservice/service/CustomerServiceUnitTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,9 +45,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Exception" />
-        <option value="Interface" />
         <option value="Dockerfile" />
         <option value="HTTP Request" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -92,6 +96,7 @@
     "JUnit.CustomerRepositoryUnitTests.executor": "Run",
     "JUnit.CustomerServiceUnitTests.CustomerServiceUpdateCustomerReturnsUpdated.executor": "Run",
     "JUnit.CustomerServiceUnitTests.CustomerServiceUpdateCustomerThrowsException.executor": "Run",
+    "JUnit.CustomerServiceUnitTests.executor": "Run",
     "JUnit.GetCustomersUnitTests.executor": "Run",
     "JUnit.GetCustomersUnitTests.getCustomersHappyFlow.executor": "Run",
     "Maven.billing-service [clean].executor": "Run",
@@ -113,7 +118,7 @@
     "Spring Boot.CustomerServiceApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Java/Power-bill-management/customer-service/src/main/proto",
+    "last_opened_file_path": "D:/Java/Patient-management",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -122,6 +127,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.1150748",
+    "run.configurations.included.in.services": "true",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   },
@@ -140,7 +146,20 @@
       <recent name="com.pm.customerservice.repository" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CustomerServiceUnitTests.CustomerServiceUpdateCustomerThrowsException">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Docker.customer-service">
+    <configuration name="All in get-customers" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/api-requests/get-customers.http">
+      <method v="2" />
+    </configuration>
     <configuration name="CustomerRepositoryUnitTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="customer-service" />
       <extension name="coverage">
@@ -156,34 +175,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CustomerRepositoryUnitTests.CustomerRepositoryFindById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CustomerServiceUnitTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="customer-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.pm.customerservice.controller.repository.*" />
+          <option name="PATTERN" value="com.pm.customerservice.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.pm.customerservice.controller.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.pm.customerservice.controller.repository.CustomerRepositoryUnitTests" />
-      <option name="METHOD_NAME" value="CustomerRepositoryFindById" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CustomerRepositoryUnitTests.CustomerRepositoryFindByIdNonExistentCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="customer-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.pm.customerservice.controller.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.pm.customerservice.controller.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.pm.customerservice.controller.repository.CustomerRepositoryUnitTests" />
-      <option name="METHOD_NAME" value="CustomerRepositoryFindByIdNonExistentCustomer" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.pm.customerservice.service" />
+      <option name="MAIN_CLASS_NAME" value="com.pm.customerservice.service.CustomerServiceUnitTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -216,6 +218,13 @@
       <option name="MAIN_CLASS_NAME" value="com.pm.customerservice.service.CustomerServiceUnitTests" />
       <option name="METHOD_NAME" value="CustomerServiceUpdateCustomerThrowsException" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="auth-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.pm.authservice.AuthServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -423,21 +432,22 @@
       <item itemvalue="Docker.billing-service" />
       <item itemvalue="Docker.customer-service-db" />
       <item itemvalue="Docker.customer-service" />
+      <item itemvalue="HTTP Request.All in get-customers" />
       <item itemvalue="JUnit.CustomerRepositoryUnitTests" />
-      <item itemvalue="JUnit.CustomerRepositoryUnitTests.CustomerRepositoryFindById" />
-      <item itemvalue="JUnit.CustomerRepositoryUnitTests.CustomerRepositoryFindByIdNonExistentCustomer" />
+      <item itemvalue="JUnit.CustomerServiceUnitTests" />
       <item itemvalue="JUnit.CustomerServiceUnitTests.CustomerServiceUpdateCustomerReturnsUpdated" />
       <item itemvalue="JUnit.CustomerServiceUnitTests.CustomerServiceUpdateCustomerThrowsException" />
+      <item itemvalue="Spring Boot.AuthServiceApplication" />
       <item itemvalue="Spring Boot.BillingServiceApplication" />
       <item itemvalue="Spring Boot.CustomerServiceApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.All in get-customers" />
+        <item itemvalue="JUnit.CustomerServiceUnitTests" />
         <item itemvalue="JUnit.CustomerServiceUnitTests.CustomerServiceUpdateCustomerThrowsException" />
         <item itemvalue="JUnit.CustomerServiceUnitTests.CustomerServiceUpdateCustomerReturnsUpdated" />
         <item itemvalue="JUnit.CustomerRepositoryUnitTests" />
-        <item itemvalue="JUnit.CustomerRepositoryUnitTests.CustomerRepositoryFindById" />
-        <item itemvalue="JUnit.CustomerRepositoryUnitTests.CustomerRepositoryFindByIdNonExistentCustomer" />
       </list>
     </recent_temporary>
   </component>
@@ -477,26 +487,15 @@
       <workItem from="1743628119480" duration="16452000" />
       <workItem from="1743695861862" duration="5301000" />
       <workItem from="1743704804281" duration="2846000" />
-      <workItem from="1743764567613" duration="10720000" />
+      <workItem from="1743764567613" duration="14178000" />
+      <workItem from="1743857854653" duration="364000" />
+      <workItem from="1743858225110" duration="208000" />
+      <workItem from="1743858440919" duration="7371000" />
+      <workItem from="1744122452454" duration="776000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/customer-service/src/test/java/com/pm/customerservice/service/CustomerServiceUnitTests.java</url>
-          <line>66</line>
-          <properties class="com.pm.customerservice.service.CustomerServiceUnitTests" method="CustomerServiceUpdateCustomerThrowsException">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

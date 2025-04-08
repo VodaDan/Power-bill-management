@@ -70,8 +70,6 @@ public class CustomerServiceUnitTests {
 
         assertNotNull(request);
 
-//        given(customerRepository.save(ArgumentMatchers.any(Customer.class)))
-//                .willAnswer(invocation -> invocation.getArgument(0));
         given(customerRepository.findById(customer.getId())).willReturn(Optional.of(customer));
         given(customerRepository.existsByAddressAndIdNot(customer.getAddress(),customer.getId())).willReturn(true);
 
@@ -80,6 +78,8 @@ public class CustomerServiceUnitTests {
         });
         assertEquals("Address '"+ request.getAddress() + "' is already registered in our system !" , exception.getMessage());
     }
+
+
 
     private static int addressCounter = 0;
 

@@ -1,1 +1,10 @@
+GET http://localhost:4000/customers
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2025-04-05T163200.200.json
+
+###
+
 GRPC localhost:9001/BillingService/DeteleBillByIdGRPC localhost:9001/BillingService/DeteleBillByIdGRPC localhost:9001/BillingService/CreateBillingGRPC localhost:9001/BillingService/DeteleBillByIdGRPC localhost:9001/BillingService/CreateBillingGRPC localhost:9001/BillingService/CreateBillingGRPC localhost:9001/BillingService/CreateBillingGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/CreateBillingGRPC localhost:9001/BillingService/CreateBillingGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsById
