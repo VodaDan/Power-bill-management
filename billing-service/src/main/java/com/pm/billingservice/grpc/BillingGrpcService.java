@@ -46,9 +46,10 @@ public class BillingGrpcService  extends BillingServiceGrpc.BillingServiceImplBa
 
     @Override
     public void getBillsById(GetBillsByIdRequest billsByIdRequest, StreamObserver<BillingResponseList> streamObserver) {
-        List<BillingResponse> bills = new ArrayList<>();
+        List<BillingResponse> billsResponse = new ArrayList<>();
+        List<Bill> bills = billingService.getBills(billsByIdRequest);
         if (!bills.isEmpty()) {
-            for (Bill bill : billingService.getBills(billsByIdRequest)) {
+            for (Bill bill : bills) {
                 BillingResponse response = BillingResponse.newBuilder()
                         .setId(bill.getId().toString())
                         .setDueDate(bill.getDueDate().toString())
@@ -58,13 +59,13 @@ public class BillingGrpcService  extends BillingServiceGrpc.BillingServiceImplBa
                         .build();
 
                 log.info("New Response:{}", response);
-                bills.add(response);
+                billsResponse.add(response);
             }
         } else {
             log.warn("No bills for customerId:{} found", String.valueOf(billsByIdRequest.getCustomerId()));
         }
         BillingResponseList responseList = BillingResponseList.newBuilder()
-                .addAllBills(bills)
+                .addAllBills(billsResponse)
                 .build();
 
         log.info("Bills sent : {}", responseList);

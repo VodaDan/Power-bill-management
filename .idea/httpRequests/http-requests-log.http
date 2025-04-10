@@ -1,4 +1,4 @@
-POST http://localhost:4005/api/customers
+GRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/CreateBillingGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/DeteleBillByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/CreateBillingGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/CreateBillingPOST http://localhost:4005/api/customers
 Content-Type: application/json
 Content-Length: 119
 User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
