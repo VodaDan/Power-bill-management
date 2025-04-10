@@ -7,3 +7,12 @@ Content-Type: application/json
   "email": "testuser@test.com",
   "password": "password123"
 }
+
+### Login request for user authentication through api-gateway
+POST http://localhost:4005/auth/login
+Content-Type: application/json
+
+{
+"email": "testuser@test.com",
+"password": "password123"
+}

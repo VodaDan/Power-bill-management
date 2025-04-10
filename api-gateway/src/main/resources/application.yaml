@@ -19,8 +19,8 @@ spring:
 #            - StripPrefix=1
 
         - id: auth-service-route
-          uri: http://auth-service:4002
+          uri: http://auth-serviceCustomers:4002
           predicates:
-            - Path=/api/auth/**
+            - Path=/auth/**
           filters:
             - StripPrefix=1

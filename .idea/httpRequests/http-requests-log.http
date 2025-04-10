@@ -1,3 +1,275 @@
+POST http://localhost:4005/auth/login
+Content-Type: application/json
+Content-Length: 59
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"email": "testuser@test.com",
+"password": "password123"
+}
+
+<> 2025-04-10T150101.200.json
+
+###
+
+POST http://localhost:4002/login
+Content-Type: application/json
+Content-Length: 63
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "testuser@test.com",
+  "password": "password123"
+}
+
+<> 2025-04-10T150059.200.json
+
+###
+
+POST http://localhost:4005/auth/login
+Content-Type: application/json
+Content-Length: 59
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"email": "testuser@test.com",
+"password": "password123"
+}
+
+<> 2025-04-10T150055.200.json
+
+###
+
+POST http://localhost:4002/login
+Content-Type: application/json
+Content-Length: 63
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "testuser@test.com",
+  "password": "password123"
+}
+
+<> 2025-04-10T145828.200.json
+
+###
+
+POST http://localhost:4005/auth/login
+Content-Type: application/json
+Content-Length: 59
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"email": "testuser@test.com",
+"password": "password123"
+}
+
+<> 2025-04-10T145826.500.json
+
+###
+
+POST http://localhost:4005/auth/login
+Content-Type: application/json
+Content-Length: 59
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"email": "testuser@test.com",
+"password": "password123"
+}
+
+<> 2025-04-10T145711.500.json
+
+###
+
+POST http://localhost:4002/login
+Content-Type: application/json
+Content-Length: 63
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "testuser@test.com",
+  "password": "password123"
+}
+
+<> 2025-04-10T145704.200.json
+
+###
+
+POST http://localhost:4002/login
+Content-Type: application/json
+Content-Length: 63
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "testuser@test.com",
+  "password": "password123"
+}
+
+<> 2025-04-10T145607.200.json
+
+###
+
+POST http://localhost:4005/auth/login
+Content-Type: application/json
+Content-Length: 59
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"email": "testuser@test.com",
+"password": "password123"
+}
+
+<> 2025-04-10T145604.500.json
+
+###
+
+POST http://localhost:4005/auth/login
+Content-Type: application/json
+Content-Length: 59
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"email": "testuser@test.com",
+"password": "password123"
+}
+
+<> 2025-04-10T145518.500.json
+
+###
+
+POST http://localhost:4002/login
+Content-Type: application/json
+Content-Length: 63
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "testuser@test.com",
+  "password": "password123"
+}
+
+<> 2025-04-10T145510.200.json
+
+###
+
+POST http://localhost:4005/auth/login
+Content-Type: application/json
+Content-Length: 59
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"email": "testuser@test.com",
+"password": "password123"
+}
+
+<> 2025-04-10T145323.500.json
+
+###
+
+POST http://localhost:4002/login
+Content-Type: application/json
+Content-Length: 63
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "testuser@test.com",
+  "password": "password123"
+}
+
+<> 2025-04-10T145318.200.json
+
+###
+
+POST http://localhost:4005/api/auth/login
+Content-Type: application/json
+Content-Length: 59
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"email": "testuser@test.com",
+"password": "password123"
+}
+
+<> 2025-04-10T145219.500.json
+
+###
+
+POST http://localhost:4002/login
+Content-Type: application/json
+Content-Length: 63
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "testuser@test.com",
+  "password": "password123"
+}
+
+<> 2025-04-10T145213.200.json
+
+###
+
+POST http://localhost:4005/api/auth/login
+Content-Type: application/json
+Content-Length: 59
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"email": "testuser@test.com",
+"password": "password123"
+}
+
+<> 2025-04-10T145121.500.json
+
+###
+
+POST http://localhost:4002/login
+Content-Type: application/json
+Content-Length: 63
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "testuser@test.com",
+  "password": "password123"
+}
+
+<> 2025-04-10T145116.200.json
+
+###
+
 GRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/CreateBillingGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/DeteleBillByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/CreateBillingGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/GetBillsByIdGRPC localhost:9001/BillingService/CreateBillingPOST http://localhost:4005/api/customers
 Content-Type: application/json
 Content-Length: 119

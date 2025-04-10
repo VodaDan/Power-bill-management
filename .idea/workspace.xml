@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e01aa297-0557-4625-89c5-7268c2b2e9e6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/37dd3a98-ca8c-473e-bd49-06bd82bfeb86.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/37dd3a98-ca8c-473e-bd49-06bd82bfeb86.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/37dd3a98-ca8c-473e-bd49-06bd82bfeb86/storage_v2/_src_/database/db1.c4MBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/37dd3a98-ca8c-473e-bd49-06bd82bfeb86/storage_v2/_src_/database/db1.c4MBAA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/billing-service/src/main/java/com/pm/billingservice/grpc/BillingGrpcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/billing-service/src/main/java/com/pm/billingservice/grpc/BillingGrpcService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grpc-request/delete-bill.http" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-request/delete-bill.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grpc-request/get-bills.http" beforeDir="false" afterPath="$PROJECT_DIR$/grpc-request/get-bills.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-requests/auth-service/login-request.http" beforeDir="false" afterPath="$PROJECT_DIR$/api-requests/auth-service/login-request.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +89,7 @@
     "HTTP Request.get-customers | #2.executor": "Run",
     "HTTP Request.get-customers | GET request through api-gateway.executor": "Run",
     "HTTP Request.get-customers | GET request to retrive customers.executor": "Run",
+    "HTTP Request.login-request | Login request for user authentication through api-gateway.executor": "Run",
     "HTTP Request.login-request | Login request for user authentication.executor": "Run",
     "JUnit.CustomerControllerTest.executor": "Run",
     "JUnit.CustomerControllerTest.testGetCustomer.executor": "Run",
@@ -169,20 +166,20 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.billing-service">
+  <component name="RunManager" selected="Docker.api-gateway">
     <configuration name="All in get-bills" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/grpc-request/get-bills.http">
       <method v="2" />
     </configuration>
     <configuration name="create-bill | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/grpc-request/create-bill.http" executionIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="create-customer | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/api-requests/customer-service/create-customer.http" executionIdentifier="#2" index="2" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="delete-bill | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/grpc-request/delete-bill.http" executionIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="get-bills | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/grpc-request/get-bills.http" executionIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="login-request | Login request for user authentication through api-gateway" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/api-requests/auth-service/login-request.http" executionIdentifier="Login request for user authentication through api-gateway" index="2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="login-request | Login request for user authentication" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/api-requests/auth-service/login-request.http" executionIdentifier="Login request for user authentication" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -515,9 +512,9 @@
       <item itemvalue="Docker.api-gateway" />
       <item itemvalue="HTTP Request.All in get-bills" />
       <item itemvalue="HTTP Request.create-bill | #1" />
-      <item itemvalue="HTTP Request.delete-bill | #1" />
       <item itemvalue="HTTP Request.get-bills | #1" />
-      <item itemvalue="HTTP Request.create-customer | #2" />
+      <item itemvalue="HTTP Request.login-request | Login request for user authentication through api-gateway" />
+      <item itemvalue="HTTP Request.login-request | Login request for user authentication" />
       <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.AuthServiceApplication" />
       <item itemvalue="Spring Boot.BillingServiceApplication" />
@@ -525,11 +522,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.login-request | Login request for user authentication through api-gateway" />
+        <item itemvalue="HTTP Request.login-request | Login request for user authentication" />
         <item itemvalue="HTTP Request.get-bills | #1" />
         <item itemvalue="HTTP Request.create-bill | #1" />
         <item itemvalue="HTTP Request.All in get-bills" />
-        <item itemvalue="HTTP Request.delete-bill | #1" />
-        <item itemvalue="HTTP Request.create-customer | #2" />
       </list>
     </recent_temporary>
   </component>
@@ -573,7 +570,7 @@
       <workItem from="1743857854653" duration="364000" />
       <workItem from="1743858225110" duration="208000" />
       <workItem from="1743858440919" duration="7371000" />
-      <workItem from="1744122452454" duration="14558000" />
+      <workItem from="1744122452454" duration="15456000" />
     </task>
     <servers />
   </component>

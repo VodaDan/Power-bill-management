@@ -1,0 +1,7 @@
+{
+  "timestamp": "2025-04-10T11:58:26.890+00:00",
+  "path": "/auth/login",
+  "status": 500,
+  "error": "Internal Server Error",
+  "requestId": "715f845b-5"
+}
