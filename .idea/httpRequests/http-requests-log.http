@@ -1,3 +1,93 @@
+POST http://localhost:4005/api/customers
+Content-Type: application/json
+Content-Length: 119
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "name": "Pop Ion",
+  "email": "pop.ion212@yahoo.com",
+  "address": "newAddressaf",
+  "registerDate": "2024-04-25"
+}
+
+<> 2025-04-10T135045.200.json
+
+###
+
+POST http://localhost:4005/api/customers
+Content-Type: application/json
+Content-Length: 117
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "name": "Pop Ion",
+  "email": "pop.ion212@yahoo.com",
+  "address": "newAddress",
+  "registerDate": "2024-04-25"
+}
+
+<> 2025-04-10T135038.400.json
+
+###
+
+POST http://localhost:4005/api/customers
+Content-Type: application/json
+Content-Length: 116
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "name": "Pop Ion",
+  "email": "pop.ion22@yahoo.com",
+  "address": "newAddress",
+  "registerDate": "2024-04-25"
+}
+
+<> 2025-04-10T135034.400.json
+
+###
+
+GET http://localhost:4005/api/customers
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2025-04-10T135026.200.json
+
+###
+
+GET http://localhost:4000/customers
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2025-04-10T134831.200.json
+
+###
+
+POST http://localhost:4000/customers
+Content-Type: application/json
+Content-Length: 114
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "name": "Pop Ion",
+  "email": "pop.ion@yahoo.com",
+  "address": "newAddress",
+  "registerDate": "2024-04-25"
+}
+
+<> 2025-04-10T134332.200.json
+
+###
+
 POST http://localhost:4002/login
 Content-Type: application/json
 Content-Length: 62

@@ -10,3 +10,13 @@ Content-Type: application/json
 }
 
 ###
+
+POST http://localhost:4005/api/customers
+Content-Type: application/json
+
+{
+  "name": "Pop Ion",
+  "email": "pop.ion212@yahoo.com",
+  "address": "newAddressaf",
+  "registerDate": "2024-04-25"
+}

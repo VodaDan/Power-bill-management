@@ -1,4 +1,5 @@
 ### GET request to retrive customers
 GET http://localhost:4000/customers
 
-###
+### GET request through api-gateway
+GET http://localhost:4005/api/customers
