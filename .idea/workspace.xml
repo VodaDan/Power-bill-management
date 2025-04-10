@@ -7,8 +7,10 @@
     <list default="true" id="e01aa297-0557-4625-89c5-7268c2b2e9e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-requests/auth-service/login-request.http" beforeDir="false" afterPath="$PROJECT_DIR$/api-requests/auth-service/login-request.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/pm/authservice/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/pm/authservice/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/pm/authservice/services/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/pm/authservice/services/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/pm/authservice/util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/pm/authservice/util/JwtUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +93,8 @@
     "HTTP Request.get-customers | GET request to retrive customers.executor": "Run",
     "HTTP Request.login-request | Login request for user authentication through api-gateway.executor": "Run",
     "HTTP Request.login-request | Login request for user authentication.executor": "Run",
+    "HTTP Request.validate-token | #1.executor": "Run",
+    "HTTP Request.validate-token | Validate request through api-gateway.executor": "Run",
     "JUnit.CustomerControllerTest.executor": "Run",
     "JUnit.CustomerControllerTest.testGetCustomer.executor": "Run",
     "JUnit.CustomerControllerTest.testUpdateCustomer_AddressAlreadyExists.executor": "Run",
@@ -166,13 +170,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.api-gateway">
-    <configuration name="All in get-bills" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/grpc-request/get-bills.http">
-      <method v="2" />
-    </configuration>
-    <configuration name="create-bill | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/grpc-request/create-bill.http" executionIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Docker.auth-service">
     <configuration name="get-bills | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/grpc-request/get-bills.http" executionIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -180,6 +178,12 @@
       <method v="2" />
     </configuration>
     <configuration name="login-request | Login request for user authentication" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/api-requests/auth-service/login-request.http" executionIdentifier="Login request for user authentication" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="validate-token | Validate request through api-gateway" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/api-requests/auth-service/validate-token.http" executionIdentifier="Validate request through api-gateway" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="validate-token | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/api-requests/auth-service/validate-token.http" executionIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -510,10 +514,10 @@
       <item itemvalue="Docker.customer-service" />
       <item itemvalue="Docker.auth-service" />
       <item itemvalue="Docker.api-gateway" />
-      <item itemvalue="HTTP Request.All in get-bills" />
-      <item itemvalue="HTTP Request.create-bill | #1" />
       <item itemvalue="HTTP Request.get-bills | #1" />
       <item itemvalue="HTTP Request.login-request | Login request for user authentication through api-gateway" />
+      <item itemvalue="HTTP Request.validate-token | #1" />
+      <item itemvalue="HTTP Request.validate-token | Validate request through api-gateway" />
       <item itemvalue="HTTP Request.login-request | Login request for user authentication" />
       <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.AuthServiceApplication" />
@@ -522,11 +526,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.validate-token | Validate request through api-gateway" />
         <item itemvalue="HTTP Request.login-request | Login request for user authentication through api-gateway" />
+        <item itemvalue="HTTP Request.validate-token | #1" />
         <item itemvalue="HTTP Request.login-request | Login request for user authentication" />
         <item itemvalue="HTTP Request.get-bills | #1" />
-        <item itemvalue="HTTP Request.create-bill | #1" />
-        <item itemvalue="HTTP Request.All in get-bills" />
       </list>
     </recent_temporary>
   </component>
@@ -570,7 +574,7 @@
       <workItem from="1743857854653" duration="364000" />
       <workItem from="1743858225110" duration="208000" />
       <workItem from="1743858440919" duration="7371000" />
-      <workItem from="1744122452454" duration="15456000" />
+      <workItem from="1744122452454" duration="17937000" />
     </task>
     <servers />
   </component>
