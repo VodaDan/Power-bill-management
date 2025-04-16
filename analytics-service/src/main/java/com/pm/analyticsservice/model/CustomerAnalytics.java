@@ -14,6 +14,21 @@ public class CustomerAnalytics {
     private UUID id;
 
     @NotNull
-    private LocalDate registerDate;
+    private LocalDate registeredDate;
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public LocalDate getRegisteredDate() {
+        return registeredDate;
+    }
+
+    public void setRegisteredDate(LocalDate registeredDate) {
+        this.registeredDate = registeredDate;
+    }
 }
