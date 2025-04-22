@@ -1,8 +1,7 @@
 syntax = "proto3";
 
 package customer.events;
-option  java_multiple_files = true;
-
+option java_multiple_files = true;
 
 message CustomerRegisterEvent {
   string customerId = 1;
