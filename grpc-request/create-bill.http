@@ -1,8 +1,8 @@
 GRPC localhost:9001/BillingService/CreateBilling
 
 {
-  "customerId": "123e4567-e89b-12d3-a456-426614174000",
-  "amount":  "1253"
+  "customerId": "123e4567-e89b-12d3-a456-426614172412",
+  "amount":  "11253"
 }
 
 ### addressOfTheSerjver:port/ServiceName/Rpc Method

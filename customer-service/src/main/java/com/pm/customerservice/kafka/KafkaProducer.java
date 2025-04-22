@@ -42,4 +42,6 @@ public class KafkaProducer {
             log.error("Error sending CustomerDeleted event: {}" , e.getMessage());
         }
     }
+
+
 }

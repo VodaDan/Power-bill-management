@@ -1,7 +1,10 @@
 package com.pm.analyticsservice.kafka;
 
+import billing.events.BillingEvent;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.pm.analyticsservice.model.BillAnalytics;
 import com.pm.analyticsservice.model.CustomerAnalytics;
+import com.pm.analyticsservice.repository.BillAnalyticsRepository;
 import com.pm.analyticsservice.repository.CustomerAnalyticsRepository;
 import customer.events.CustomerEvent;
 import org.slf4j.Logger;
@@ -16,9 +19,11 @@ import java.util.UUID;
 public class KafkaConsumer {
 
     private final CustomerAnalyticsRepository customerAnalyticsRepository;
+    private final BillAnalyticsRepository billAnalyticsRepository;
 
-    public KafkaConsumer (CustomerAnalyticsRepository customerAnalyticsRepository) {
+    public KafkaConsumer (CustomerAnalyticsRepository customerAnalyticsRepository, BillAnalyticsRepository billAnalyticsRepository) {
         this.customerAnalyticsRepository = customerAnalyticsRepository;
+        this.billAnalyticsRepository = billAnalyticsRepository;
     }
 
     private static final Logger log = LoggerFactory.getLogger(KafkaConsumer.class);
@@ -41,7 +46,32 @@ public class KafkaConsumer {
             }
 
         } catch (InvalidProtocolBufferException e) {
-            log.info("Error deserializing event: {}", e.getMessage());
+            log.info("Error deserializing customer event: {}", e.getMessage());
+        }
+    }
+
+    @KafkaListener(topics = "bill", groupId = "analytics-service")
+    public void consumeBillingEvent (byte[] event) {
+        try {
+            BillingEvent billingEvent = BillingEvent.parseFrom(event);
+
+            if(billingEvent.getEventType().equals("BILL_CREATE")) {
+                BillAnalytics bill = new BillAnalytics();
+                bill.setId(UUID.fromString(billingEvent.getId()));
+                bill.setCustomerId(UUID.fromString(billingEvent.getCustomerId()));
+                bill.setAmount(Double.valueOf(billingEvent.getAmount()));
+                bill.setDueDate(LocalDate.parse(billingEvent.getDueDate()));
+                bill.setIssueDate(LocalDate.parse(billingEvent.getIssueDate()));
+                billAnalyticsRepository.save(bill);
+                log.info("Bill created: {} , {}" , billingEvent.getId(), billingEvent.getAmount());
+
+            } else if(billingEvent.getEventType().equals("BILL_DELETE")) {
+                billAnalyticsRepository.deleteById(UUID.fromString(billingEvent.getId()));
+                log.info("Bill deleted with id: {}" , billingEvent.getId());
+            }
+
+        } catch (InvalidProtocolBufferException e) {
+            log.info("Error deserializing billing event: {}", e.getMessage());
         }
     }
 }

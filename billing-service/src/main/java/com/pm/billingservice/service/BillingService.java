@@ -4,6 +4,7 @@ import billing.BillingResponse;
 import billing.DeleteBillByIdRequest;
 import com.pm.billingservice.dto.BillRequestDTO;
 import com.pm.billingservice.dto.BillResponseDTO;
+import com.pm.billingservice.kafka.KafkaProducer;
 import com.pm.billingservice.mapper.BillMapper;
 import com.pm.billingservice.model.Bill;
 import com.pm.billingservice.repository.BillRepository;
@@ -23,9 +24,11 @@ import static org.hibernate.internal.util.collections.ArrayHelper.forEach;
 public class BillingService {
     private static final Logger log = LoggerFactory.getLogger(BillingService.class);
     private final BillRepository billRepository;
+    private final KafkaProducer kafkaProducer;
 
-    public BillingService(BillRepository billRepository) {
+    public BillingService(BillRepository billRepository, KafkaProducer kafkaProducer) {
         this.billRepository = billRepository;
+        this.kafkaProducer = kafkaProducer;
     }
 
     public List<Bill> getBills() {
@@ -40,8 +43,8 @@ public class BillingService {
         bill.setIssueDate(LocalDate.now());
         bill.setDueDate(bill.getIssueDate().plusDays(30));
         bill.setAmount(Double.valueOf(billingRequest.getAmount()));
-        billRepository.save(bill);
-
+        Bill newBill = billRepository.save(bill);
+        kafkaProducer.sendBillCreateEvent(newBill);
         return bill;
     }
 
@@ -52,11 +55,14 @@ public class BillingService {
 
     public boolean deleteBill(DeleteBillByIdRequest request) {
         boolean status = false;
+        Bill bill = billRepository.getReferenceById(UUID.fromString(request.getId()));
        if( billRepository.findById(UUID.fromString(request.getId())).isEmpty() ) {
            log.info("Couldn't find a bill with id: {}" , request.getId());
        } else {
            billRepository.deleteById(UUID.fromString(request.getId()));
            status = true;
+           kafkaProducer.sendBillDeleteEvent(bill);
+           log.info("Bill has been deleted: {}", bill.getId());
        }
 
        return status;
