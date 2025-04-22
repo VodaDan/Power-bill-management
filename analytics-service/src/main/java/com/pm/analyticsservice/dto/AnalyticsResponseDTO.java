@@ -7,6 +7,10 @@ public class AnalyticsResponseDTO {
     private String totalRevenue;
     private String averageBillRevenue;
 
+
+
+    private String generationDate;
+
     public String getTotalCustomers() {
         return totalCustomers;
     }
@@ -37,5 +41,13 @@ public class AnalyticsResponseDTO {
 
     public void setAverageBillRevenue(String averageBillRevenue) {
         this.averageBillRevenue = averageBillRevenue;
+    }
+
+    public String getGenerationDate() {
+        return generationDate;
+    }
+
+    public void setGenerationDate(String generationDate) {
+        this.generationDate = generationDate;
     }
 }
