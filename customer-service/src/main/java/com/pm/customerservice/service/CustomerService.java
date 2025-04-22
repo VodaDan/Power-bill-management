@@ -4,6 +4,7 @@ import com.pm.customerservice.dto.CustomerResponseDTO;
 import com.pm.customerservice.dto.CustomerRequestDTO;
 import com.pm.customerservice.exception.AddressAlreadyExistsException;
 import com.pm.customerservice.exception.CustomerNotFoundException;
+import com.pm.customerservice.kafka.KafkaProducer;
 import com.pm.customerservice.mapper.CustomerMapper;
 import com.pm.customerservice.module.Customer;
 import com.pm.customerservice.repository.CustomerRepository;
@@ -16,9 +17,11 @@ import java.util.UUID;
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
+    private final KafkaProducer kafkaProducer;
 
-    public CustomerService(CustomerRepository customerRepository) {
+    public CustomerService(CustomerRepository customerRepository, KafkaProducer kafkaProducer) {
         this.customerRepository = customerRepository;
+        this.kafkaProducer = kafkaProducer;
     }
 
     public List<CustomerResponseDTO> getCustomers() {
@@ -33,6 +36,7 @@ public class CustomerService {
         }
 
         Customer customer = customerRepository.save(CustomerMapper.toModel(customerRequestDTO));
+        kafkaProducer.sendCreateEvent(customer);
         return CustomerMapper.toDTO(customer);
     }
 
@@ -54,7 +58,7 @@ public class CustomerService {
         Customer customer = customerRepository.findById(id).orElseThrow(() -> new CustomerNotFoundException("Customer not found!"));
         CustomerResponseDTO customerResponseDTO = CustomerMapper.toDTO(customer);
         customerRepository.deleteById(id);
-
+        kafkaProducer.sendDeleteEvent(customer);
         return customerResponseDTO;
     }
 }
