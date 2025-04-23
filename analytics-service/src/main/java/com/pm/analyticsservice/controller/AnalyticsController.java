@@ -1,5 +1,6 @@
 package com.pm.analyticsservice.controller;
 
+import com.pm.analyticsservice.dto.AnalyticsResponseDTO;
 import com.pm.analyticsservice.dto.CustomerAnalyticsResponseDTO;
 import com.pm.analyticsservice.model.CustomerAnalytics;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class AnalyticsController {
 
 
-
+    @GetMapping("/analytics")
+    public ResponseEntity<AnalyticsResponseDTO> getAnalytics(){
+        
+    }
 
 }
