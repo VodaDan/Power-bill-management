@@ -1,0 +1,54 @@
+
+services:
+  customer-service-db:
+    container_name: pb-customer-service-db
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: admin_user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - /d/Java/Docker/power-bill-management/db_volumes/customer-service-db:/var/lib/postgresql/data
+    ports:
+      - "5000:5432"
+    networks:
+      - internal-net
+
+  customer-service:
+    container_name: pb-customer-service
+    build:
+      context: ./customer-service
+    ports:
+      - "4000:4000"
+    environment:
+      BILLING_SERVICE_ADDRESS: localhost
+      BILLING_SERVICE_GRPC_PORT: 9001
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_DATASOURCE_USERNAME: admin_user
+      SPRING_DATASOURCE_URL: jdbc:postgresql://customer-service-db:5432/db
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_SQL_INIT_MODE: always
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    networks:
+      - internal-net
+    depends_on:
+      - customer-service-db
+
+  api-gateway:
+    container_name: pb-api-gateway
+    build:
+      context: ./api-gateway
+    ports:
+      - "4005:4005"
+    networks:
+      - internal-net
+
+
+networks:
+  internal-net:
+
+
+
+
+
+
