@@ -8,6 +8,8 @@ Content-Type: application/json
   "password": "password123"
 }
 
+> {% client.global.set("token", response.body.token) %}
+
 ### Login request for user authentication through api-gateway
 POST http://localhost:4005/auth/login
 Content-Type: application/json

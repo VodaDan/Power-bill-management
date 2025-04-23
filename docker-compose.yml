@@ -43,6 +43,125 @@ services:
     networks:
       - internal-net
 
+  billing-service-db:
+    container_name: pb-billing-service-db
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: db1
+      POSTGRES_USER: admin_user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - /d/Java/Docker/power-bill-management/db_volumes/billing-service-db:/var/lib/postgresql/data
+    ports:
+      - "5001:5432"
+    networks:
+      - internal-net
+
+  billing-service:
+    container_name: pb-billing-service
+    build:
+      context: ./billing-service
+    ports:
+      - "4001:4001"
+      - "9001:9001"
+    environment:
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_DATASOURCE_USERNAME: admin_user
+      SPRING_DATASOURCE_URL: jdbc:postgresql://billing-service-db:5432/db1
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_SQL_INIT_MODE: always
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    networks:
+      - internal-net
+    depends_on:
+      - billing-service-db
+
+  analytics-service-db:
+    container_name: pb-analytics-service-db
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: admin_user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - /d/Java/Docker/power-bill-management/db_volumes/analytics-service-db:/var/lib/postgresql/data
+    ports:
+      - "5003:5432"
+    networks:
+      - internal-net
+
+  analytics-service:
+    container_name: pb-analytics-service
+    build:
+      context: ./analytics-service
+    ports:
+      - "4003:4003"
+    environment:
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_DATASOURCE_USERNAME: admin_user
+      SPRING_DATASOURCE_URL: jdbc:postgresql://analytics-service-db:5432/db
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_SQL_INIT_MODE: always
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    networks:
+      - internal-net
+    depends_on:
+      - analytics-service-db
+
+  kafka:
+    container_name: pb-kafka
+    image: bitnami/kafka:latest
+    environment:
+      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,EXTERNAL://localhost:9094
+      KAFKA_CFG_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: 0@kafka:9093
+      KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://:9094
+      KAFKA_CFG_NODE_ID: 0
+      KAFKA_CFG_PROCESS_ROLES: controller,broker
+    ports:
+      - "9092:9092"
+      - "9094:9094"
+    networks:
+      - internal-net
+
+  auth-service-db:
+    container_name: pb-auth-service-db
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: admin_user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - /d/Java/Docker/power-bill-management/db_volumes/auth-service-db:/var/lib/postgresql/data
+    ports:
+      - "5002:5432"
+    networks:
+      - internal-net
+
+  auth-service:
+    container_name: pb-auth-service
+    build:
+      context: ./auth-service
+    ports:
+      - "4002:4002"
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_DATASOURCE_USERNAME: admin_user
+      SPRING_DATASOURCE_URL: jdbc:postgresql://auth-service-db:5432/db
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_SQL_INIT_MODE: always
+    networks:
+      - internal-net
+    depends_on:
+      - auth-service-db
+
+
+
+
+
+
 
 networks:
   internal-net:

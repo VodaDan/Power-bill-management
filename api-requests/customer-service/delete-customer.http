@@ -1,4 +1,4 @@
 ### DELETE request to delete a customer
-DELETE http://localhost:4000/customers/788f5e30-5ed3-422a-abe2-a653de96faea
+DELETE http://localhost:4005/customers/dde5c8c0-3b30-4cd4-99c7-1c2727cacf93
 
 ###
