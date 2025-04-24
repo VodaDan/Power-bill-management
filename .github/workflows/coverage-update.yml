@@ -1,0 +1,47 @@
+name: Service Coverage
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  report-coverage:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build and test customer-service
+        run: |
+          cd customer-service
+          mvn clean verify
+
+      - name: Extract customer-service test coverage
+        id: coverage
+        run: |
+          COVERED=$(grep -oP 'covered="\K\d+' customer-service/target/site/jacoco/jacoco.xml | head -1)
+          MISSED=$(grep -oP 'missed="\K\d+' customer-service/target/site/jacoco/jacoco.xml | head -1)
+          TOTAL=$((COVERED + MISSED))
+          if [ $TOTAL -eq 0 ]; then
+            PERCENT=0
+          else
+            PERCENT=$((COVERED * 100 / TOTAL))
+          fi
+          echo "coverage=$PERCENT" >> $GITHUB_OUTPUT
+
+      - name: Post coverage to GitHub Issue
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/${{ github.repository }}/issues/3/comments \
+            -d "{\"body\": \"Customer Service test coverage after latest push: **${{ steps.coverage.outputs.coverage }}%**\"}"
+          
