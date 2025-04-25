@@ -24,15 +24,6 @@ jobs:
           cd customer-service
           mvn clean verify
 
-      - name: Install PowerShell
-        run: |
-          sudo apt-get install -y wget
-          wget https://github.com/PowerShell/PowerShell/releases/download/v7.2.9/powershell-7.2.9-linux-x64.tar.gz
-          mkdir ~/powershell
-          tar -xvf ./powershell-7.2.9-linux-x64.tar.gz -C ~/powershell
-          echo "export PATH=\$PATH:~/powershell/pwsh" >> ~/.bashrc
-          source ~/.bashrc
-
       - name: Extract customer-service test coverage using PowerShell
         id: coverage
         shell: pwsh
