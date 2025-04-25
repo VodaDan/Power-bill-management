@@ -51,7 +51,7 @@ jobs:
           \$htmlContent = Get-Content \$htmlFile -Raw
           
           # Use a regular expression to extract the coverage percentage from the 'Total' row
-          if (\$htmlContent -match '<td>\s*Total\s*<\/td>\s*<td class=""bar"">.*?<\/td>\s*<td class=""ctr2"">(\d+)%<\/td>') {
+          if (\$htmlContent -match '<td>\s*Total\s*<\/td>\s*<td class="bar">.*?<\/td>\s*<td class="ctr2">(\d+)%<\/td>') {
               \$coveragePercentage = \$matches[1]  # This will capture the percentage value
           } else {
               \$coveragePercentage = 0  # Default value if no match is found
