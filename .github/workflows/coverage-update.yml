@@ -27,6 +27,13 @@ jobs:
       - name: Extract customer-service test coverage
         id: coverage
         run: |
+          FILE="customer-service/target/site/jacoco/jacoco.xml"
+          if [ ! -f "$FILE" ]; then
+          echo "Coverage file not found."
+          echo "coverage=0" >> $GITHUB_OUTPUT
+          exit 0
+          fi
+      
           COVERED=$(awk -F'"' '/<counter type="LINE"/ {sum += $4} END {print sum}' "$FILE")
           MISSED=$(awk -F'"' '/<counter type="LINE"/ {sum += $2} END {print sum}' "$FILE")
           TOTAL=$((COVERED + MISSED))
@@ -35,6 +42,9 @@ jobs:
           else
           PERCENT=$((COVERED * 100 / TOTAL))
           fi
+          echo "coverage=$PERCENT" >> $GITHUB_OUTPUT
+          
+          
 
       - name: Post coverage to GitHub Issue
         run: |
