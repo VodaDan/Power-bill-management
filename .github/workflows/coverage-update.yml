@@ -37,29 +37,28 @@ jobs:
         id: coverage
         run: |
           pwsh -Command "
-          $htmlFile = "customer-service/target/site/jacoco/index.html"
-
+          # Define the path to the jacoco.html file
+          \$htmlFile = 'customer-service/target/site/jacoco/index.html'
+          
           # Check if the HTML file exists
-            if (-not (Test-Path $htmlFile)) {
-            Write-Host "HTML file not found."
-            Write-Output "coverage=0"  # Output coverage as 0 if file doesn't exist
-            exit 0
+          if (-not (Test-Path \$htmlFile)) {
+              Write-Host 'HTML file not found.'
+              Write-Output 'coverage=0'  # Output coverage as 0 if file doesn't exist
+              exit 0
           }
           
           # Read the HTML content from the file
-            $htmlContent = Get-Content $htmlFile -Raw
+          \$htmlContent = Get-Content \$htmlFile -Raw
           
-            # Use a more flexible regular expression to extract the coverage percentage from the 'Total' row
-            if ($htmlContent -match '<td>\s*Total\s*<\/td>\s*<td class="bar">.*?<\/td>\s*<td class="ctr2">(\d+)%<\/td>') {
-            $coveragePercentage = $matches[1]  # This will capture the percentage value
+          # Use a regular expression to extract the coverage percentage from the 'Total' row
+          if (\$htmlContent -match '<td>\s*Total\s*<\/td>\s*<td class=""bar"">.*?<\/td>\s*<td class=""ctr2"">(\d+)%<\/td>') {
+              \$coveragePercentage = \$matches[1]  # This will capture the percentage value
           } else {
-            $coveragePercentage = 0  # Default value if no match is found
+              \$coveragePercentage = 0  # Default value if no match is found
           }
           
-          # Output the coverage percentage
-            Write-Output "coverage=$coveragePercentage"
-      
-      
+          # Output the coverage percentage in the required format
+          Write-Output 'coverage=' + \$coveragePercentage"
 
       - name: Post coverage to GitHub Issue
         run: |
