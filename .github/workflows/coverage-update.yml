@@ -27,15 +27,14 @@ jobs:
       - name: Extract customer-service test coverage
         id: coverage
         run: |
-          COVERED=$(grep -oP '<counter type="LINE" covered="\K\d+' customer-service/target/site/jacoco/jacoco.xml | head -n 1)
-          MISSED=$(grep -oP '<counter type="LINE" missed="\K\d+' customer-service/target/site/jacoco/jacoco.xml | head -n 1)
+          COVERED=$(awk -F'"' '/<counter type="LINE"/ {sum += $4} END {print sum}' "$FILE")
+          MISSED=$(awk -F'"' '/<counter type="LINE"/ {sum += $2} END {print sum}' "$FILE")
           TOTAL=$((COVERED + MISSED))
-          if [ $TOTAL -eq 0 ]; then
-            PERCENT=0
+          if [ "$TOTAL" -eq 0 ]; then
+          PERCENT=0
           else
-            PERCENT=$((COVERED * 100 / TOTAL))
+          PERCENT=$((COVERED * 100 / TOTAL))
           fi
-          echo "coverage=$PERCENT" >> $GITHUB_OUTPUT
 
       - name: Post coverage to GitHub Issue
         run: |
