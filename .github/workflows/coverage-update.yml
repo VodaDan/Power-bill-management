@@ -24,7 +24,7 @@ jobs:
           cd customer-service
           mvn clean verify
 
-      - name: Extract customer-service test coverage using PowerShell
+      - name: Extract customer-service  test coverage using PowerShell
         id: coverage
         shell: pwsh
         run: |
