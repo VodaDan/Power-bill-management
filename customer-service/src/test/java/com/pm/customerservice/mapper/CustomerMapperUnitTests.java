@@ -65,7 +65,7 @@ public class CustomerMapperUnitTests {
         assertEquals(request.getName(), newCustomer.getName());
         assertEquals(request.getEmail(), newCustomer.getEmail());
         assertEquals(request.getAddress(), newCustomer.getAddress());
-        assertEquals(request.getRegisterDate(), newCustomer.getRegisterDate().toString());
+        assertEquals(request.getRegisterDate(), String.valueOf(newCustomer.getRegisterDate()));
     }
 
 }
