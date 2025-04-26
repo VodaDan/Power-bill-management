@@ -23,6 +23,11 @@ public class BillingGrpcServiceClient {
         blockingStub = billing.BillingServiceGrpc.newBlockingStub(channel);
     }
 
+    // Test constructor
+    public BillingGrpcServiceClient(BillingServiceGrpc.BillingServiceBlockingStub blockingStub) {
+        this.blockingStub = blockingStub;
+    }
+
     public BillingResponse createBilling(String customerId, String amount) {
         BillingRequest billingRequest = BillingRequest.newBuilder().setAmount(amount).setCustomerId(customerId).build();
         BillingResponse billingResponse = blockingStub.createBilling(billingRequest);
