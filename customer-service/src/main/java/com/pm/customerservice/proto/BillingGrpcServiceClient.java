@@ -9,6 +9,7 @@ import net.devh.boot.grpc.server.service.GrpcService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ public class BillingGrpcServiceClient {
     private static final Logger log = LoggerFactory.getLogger(BillingGrpcServiceClient.class);
     private final BillingServiceGrpc.BillingServiceBlockingStub blockingStub;
 
+    @Autowired
     public BillingGrpcServiceClient (@Value ("${billing.service.address}")String serverAddress, @Value("${billing.service.grpc.port}") int serverPort) {
     log.info("Billing service channel is being initialized at {}:{}",serverAddress,serverPort);
         ManagedChannel channel = ManagedChannelBuilder.forAddress(serverAddress,serverPort).usePlaintext().build();
@@ -24,6 +26,7 @@ public class BillingGrpcServiceClient {
     }
 
     // Test constructor
+
     public BillingGrpcServiceClient(BillingServiceGrpc.BillingServiceBlockingStub blockingStub) {
         this.blockingStub = blockingStub;
     }

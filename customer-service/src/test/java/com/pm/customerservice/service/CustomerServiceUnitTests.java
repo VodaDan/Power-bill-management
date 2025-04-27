@@ -139,6 +139,26 @@ public class CustomerServiceUnitTests {
         assertEquals("Address '"+ customer.getAddress() + "' is already registered in our system !", exception.getMessage());
     }
 
+    // Delete Customer Tests
+
+    @Test
+    public void CustomerServiceDeleteCustomerReturnsResponseDto() {
+        Customer customer = createMockCustomer();
+
+        customerRepository.save(customer);
+
+        when(customerRepository.findById(any(UUID.class))).thenReturn(Optional.of(customer));
+
+        CustomerResponseDTO responseDTO = customerService.deleteCustomer(customer.getId());
+
+        assertNotNull(responseDTO);
+        assertEquals(responseDTO.getId(), String.valueOf(customer.getId()));
+        assertEquals(responseDTO.getName(), customer.getName());
+        assertEquals(responseDTO.getEmail(), customer.getEmail());
+        assertEquals(responseDTO.getAddress(), customer.getAddress());
+
+    }
+
     @Captor
     private ArgumentCaptor<Customer> customerCaptor;
 

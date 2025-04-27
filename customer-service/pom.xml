@@ -170,6 +170,20 @@
                         <goals>
                             <goal>report</goal> <!-- Generates the code coverage report -->
                         </goals>
+                        <configuration>
+                            <excludes>
+                                <exclude>**/generated/**</exclude>
+                                <exclude>**/grpc/**</exclude>
+                                <exclude>**/proto/**</exclude>
+                                <exclude>**/*Grpc*.class</exclude>
+                                <exclude>**/target/**</exclude>
+                                <exclude>BillingServiceGrpc*</exclude>
+                                <exclude>BillingRequest*</exclude>
+                                <exclude>BillingResponse*</exclude>
+                                <exclude>*Grpc*</exclude>
+                                <exclude>*Proto*</exclude>
+                            </excludes>
+                        </configuration>
                         <phase>verify</phase> <!-- Ensure it's run after tests -->
                     </execution>
                 </executions>
