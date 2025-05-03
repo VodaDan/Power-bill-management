@@ -10,6 +10,7 @@ spring:
             - Path=/api/customers/**
           filters:
             - StripPrefix=1
+            - JwtValidation
 
 #        - id: billing-service-route
 #          uri: http://billing-service:4001
@@ -24,3 +25,4 @@ spring:
             - Path=/auth/**
           filters:
             - StripPrefix=1
+            - JwtValidation
