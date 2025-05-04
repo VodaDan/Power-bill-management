@@ -3,6 +3,21 @@ server:
 spring:
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - "http://127.0.0.1:5500"  # Frontend origin (adjust as necessary)
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders:
+              - Content-Type
+              - Authorization
+            allowCredentials: true
       routes:
         - id: customer-service-route
           uri: http://pb-customer-service:4000
@@ -25,4 +40,6 @@ spring:
             - Path=/auth/**
           filters:
             - StripPrefix=1
-            - JwtValidation
+
+
+

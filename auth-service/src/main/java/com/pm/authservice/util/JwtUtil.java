@@ -28,7 +28,7 @@ public class JwtUtil {
                 .subject(email)
                 .claim("role", role)
                 .issuedAt(new Date())
-                .expiration(new Date(System.currentTimeMillis()*1000*60*60*10))
+                .expiration(new Date(System.currentTimeMillis()+1000*60*60*2)) // 120 minutes
                 .signWith(secretKey)
                 .compact();
     }

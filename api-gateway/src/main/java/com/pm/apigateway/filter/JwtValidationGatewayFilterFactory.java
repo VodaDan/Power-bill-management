@@ -10,17 +10,17 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @Component
 public class JwtValidationGatewayFilterFactory extends AbstractGatewayFilterFactory<Object> {
+
     private final WebClient webClient;
 
-    public JwtValidationGatewayFilterFactory (WebClient.Builder webClinetBuilder
+    public JwtValidationGatewayFilterFactory (WebClient.Builder webClientBuilder
             ,@Value("${auth.service.url}") String authServiceUrl) {
 
-        this.webClient = webClinetBuilder.baseUrl(authServiceUrl).build();
+        this.webClient = webClientBuilder.baseUrl(authServiceUrl).build();
     }
 
     @Override
     public GatewayFilter apply(Object config) {
-        // Return a filter that will execute on every request going through the gateway
         return ((exchange, chain) ->{
             String token = exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
 
@@ -38,4 +38,6 @@ public class JwtValidationGatewayFilterFactory extends AbstractGatewayFilterFact
 
         });
     }
+
+
 }
