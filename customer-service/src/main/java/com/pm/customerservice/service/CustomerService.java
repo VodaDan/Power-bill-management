@@ -30,6 +30,11 @@ public class CustomerService {
         return customerResponseDTO;
     }
 
+    public CustomerResponseDTO getCustomerByEmail (String email) {
+        Customer customer = customerRepository.findByEmail(email);
+        return CustomerMapper.toDTO(customer);
+    }
+
     public CustomerResponseDTO createCustomer(CustomerRequestDTO customerRequestDTO) {
         if(customerRepository.existsByAddress(customerRequestDTO.getAddress())){
             throw new AddressAlreadyExistsException("Address '"+ customerRequestDTO.getAddress() + "' is already registered in our system !");
