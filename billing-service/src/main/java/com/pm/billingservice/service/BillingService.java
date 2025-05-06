@@ -31,8 +31,9 @@ public class BillingService {
         this.kafkaProducer = kafkaProducer;
     }
 
-    public List<Bill> getBills() {
-        List<Bill> bills = new ArrayList<>();
+    public List<BillResponseDTO> getBillsById(String id) {
+        List<Bill> billsList = billRepository.findByCustomerId(UUID.fromString(id));
+        List<BillResponseDTO> bills = billsList.stream().map(BillMapper::toDTO).toList();
         return bills;
     }
 
