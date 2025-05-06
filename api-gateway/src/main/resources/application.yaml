@@ -37,7 +37,7 @@ spring:
         - id: auth-service-route
           uri: http://pb-auth-service:4002
           predicates:
-            - Path=/auth/**
+            - Path=/**
           filters:
             - StripPrefix=1
 
