@@ -35,6 +35,14 @@ spring:
             - StripPrefix=1
             - JwtValidation
 
+        - id: analytics-service-route
+          uri: http://pb-analytics-service:4003
+          predicates:
+            - Path=/api/analytics/**
+          filters:
+            - StripPrefix=1
+            - name: RoleBasedAuthFilter
+
         - id: auth-service-route
           uri: http://pb-auth-service:4002
           predicates:
