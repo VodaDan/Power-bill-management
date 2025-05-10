@@ -2,6 +2,7 @@ package com.pm.authservice.services;
 
 import com.pm.authservice.dto.LoginRequestDTO;
 import com.pm.authservice.util.JwtUtil;
+import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.JwtException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,6 +41,17 @@ public class AuthService {
             return false;
         }
 
+    }
+
+    public String getRole(String token) {
+        try {
+            String role = jwtUtil.getRole(token);
+            log.info("Role is {}", role );
+            return role;
+        } catch (JwtException e) {
+            log.info("Role retrive failed: {}" , e.getMessage());
+            return "UNAUTHORIZED";
+        }
     }
 
 }

@@ -2,6 +2,7 @@ package com.pm.authservice.controller;
 
 import com.pm.authservice.dto.LoginRequestDTO;
 import com.pm.authservice.dto.LoginResponseDTO;
+import com.pm.authservice.dto.RoleResponseDTO;
 import com.pm.authservice.services.AuthService;
 import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
@@ -40,5 +41,15 @@ public class AuthController {
                     : ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
 
+    }
+
+    @GetMapping("/authorize")
+    public ResponseEntity<RoleResponseDTO> getRole(@RequestHeader("Authorization") String authHeader) {
+        if(authHeader == null || !authHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        } else {
+            return ResponseEntity.ok().body(new RoleResponseDTO(authService.getRole(authHeader.substring(7))));
+
+        }
     }
 }

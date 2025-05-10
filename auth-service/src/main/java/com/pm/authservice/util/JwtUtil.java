@@ -1,6 +1,8 @@
 package com.pm.authservice.util;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
+import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
@@ -41,6 +43,16 @@ public class JwtUtil {
         } catch (JwtException e) {
             throw new JwtException("Invalid Token");
         }
+    }
+
+    public String getRole(String token) {
+        JwtParser parser = Jwts.parser().verifyWith((SecretKey) secretKey ).build();
+
+        Claims claims = parser.parseSignedClaims(token).getPayload();
+
+        String role = claims.get("role", String.class);
+
+        return role;
     }
 
 }
