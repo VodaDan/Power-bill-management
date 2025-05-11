@@ -41,7 +41,7 @@ spring:
             - Path=/api/analytics/**
           filters:
             - StripPrefix=1
-#            - name: RoleBasedAuthFilter
+            - RoleBasedAuth
 
         - id: auth-service-route
           uri: http://pb-auth-service:4002
