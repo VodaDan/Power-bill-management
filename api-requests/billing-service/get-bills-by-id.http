@@ -1,5 +1,5 @@
 ### GET request to retrive bills
-GET http://localhost:4005/api/bills/f281ec1c-986d-41b5-a7e1-770c34d9134a
+GET http://localhost:4005/api/bills/123e4567-e89b-12d3-a456-426614174000
 Authorization: Bearer {{token}}
 
 ###
