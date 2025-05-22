@@ -45,6 +45,45 @@ public class LocalStack extends Stack {
         // Create Ecs Cluster
         this.ecsCluster = createEcsCluster();
 
+        // Create Fargate Service
+        FargateService customerService = createFargateService("CustomerService",
+                "pb-customer-service",
+                List.of(4000),
+                customerServiceDb,Map.of(
+                "BILLING_SERVICE_ADDRESS", "host.docker.internal",
+                "BILLING_SERVICE_GRPC_PORT", "9001"
+                ));
+
+        FargateService billsService = createFargateService("BillsService","pb-bills-service",List.of(4001),billsServiceDb,null);
+
+        FargateService authService = createFargateService("AuthService",
+                "pb-auth-service",
+                List.of(4002),
+                authServiceDb,
+                Map.of("JWT_SECRET", "XUpOzxntvH2vRW+lzOYKXJgB/mwVcb6ni9S7Qz3xL6M=")
+                );
+
+        FargateService analyticsService = createFargateService("AnalyticsService",
+                "pb-analytics-service",
+                List.of(4003),
+                analyticsServiceDb,
+                null);
+
+        // Add dependency
+        customerService.getNode().addDependency(customerServiceDb);
+        customerService.getNode().addDependency(customerDbHealthCheck);
+        customerService.getNode().addDependency(mskCluster);
+
+        billsService.getNode().addDependency(billsServiceDb);
+        billsService.getNode().addDependency(billsDbHealthCheck);
+        billsService.getNode().addDependency(mskCluster);
+
+        analyticsService.getNode().addDependency(analyticsServiceDb);
+        analyticsService.getNode().addDependency(analyticsDbHealthCheck);
+        analyticsService.getNode().addDependency(mskCluster);
+
+        authService.getNode().addDependency(authServiceDb);
+        authService.getNode().addDependency(authDbHealthCheck);
     };
 
     public Vpc createVpc() {
