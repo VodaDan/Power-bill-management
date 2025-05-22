@@ -6,6 +6,7 @@ import software.amazon.awscdk.services.ec2.InstanceSize;
 import software.amazon.awscdk.services.ec2.InstanceType;
 import software.amazon.awscdk.services.ec2.Vpc;
 import software.amazon.awscdk.services.rds.*;
+import software.amazon.awscdk.services.route53.CfnHealthCheck;
 
 public class LocalStack extends Stack {
 
@@ -17,8 +18,17 @@ public class LocalStack extends Stack {
         // Create Vpc
         this.vpc = createVpc();
 
+        // Create Database instances
         DatabaseInstance customerServiceDb = createDatabase("PB-CustomerServiceDB","pb-customer-service-db");
         DatabaseInstance billsServiceDb = createDatabase("PB-BillsServiceDB","pb-bills-service-db");
+        DatabaseInstance authServiceDb = createDatabase("PB-AuthServiceDB","pb-auth-service-db");
+        DatabaseInstance analyticsServiceDb = createDatabase("PB-AnalyticsServiceDB","pb-analytics-service-db");
+
+        // Create Database Healthchecks
+        CfnHealthCheck customerDbHealthCheck = createDbHealthCheck(customerServiceDb,"CustomerServiceDbHealthCheck");
+        CfnHealthCheck billsDbHealthCheck = createDbHealthCheck(billsServiceDb,"BillsServiceDbHealthCheck");
+        CfnHealthCheck authDbHealthCheck = createDbHealthCheck(authServiceDb,"AuthServiceDbHealthCheck");
+        CfnHealthCheck analyticsDbHealthCheck = createDbHealthCheck(analyticsServiceDb,"AnalyticsServiceDbHealthCheck");
 
     };
 
@@ -46,11 +56,26 @@ public class LocalStack extends Stack {
                 .build();
     }
 
+    private CfnHealthCheck createDbHealthCheck (DatabaseInstance db, String id){
+        return CfnHealthCheck.Builder.create(this, id)
+                .healthCheckConfig(CfnHealthCheck.HealthCheckConfigProperty.builder()
+                        .type("TCP")
+                        .port(Token.asNumber(db.getDbInstanceEndpointPort()))
+                        .ipAddress(db.getDbInstanceEndpointAddress())
+                        .requestInterval(30)
+                        .failureThreshold(3)
+                        .build())
+                .build();
+    }
+
     public static void main(final String[] args) {
         App app = new App(AppProps.builder().outdir("./cdk.out").build());
         StackProps props = StackProps.builder()
                 .synthesizer(new BootstraplessSynthesizer())
                 .build();
+        new LocalStack(app,"localstack", props);
+        app.synth();
+        System.out.println("App synthesizing in progress.");
     }
 
 }
