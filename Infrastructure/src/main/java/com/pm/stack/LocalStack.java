@@ -85,6 +85,9 @@ public class LocalStack extends Stack {
 
         authService.getNode().addDependency(authServiceDb);
         authService.getNode().addDependency(authDbHealthCheck);
+
+        // Create API gateway service
+        createApiGatewayService();
     };
 
     public Vpc createVpc() {

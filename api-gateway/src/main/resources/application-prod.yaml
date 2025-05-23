@@ -1,0 +1,58 @@
+server:
+  port: 4005
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - "http://localhost:3000"  # Frontend origin (adjust as necessary)
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders:
+              - Content-Type
+              - Authorization
+            allowCredentials: true
+      routes:
+        - id: customer-service-route
+          uri: http://host.docker.internal:4000
+          predicates:
+            - Path=/api/customers/**
+          filters:
+            - StripPrefix=1
+            - JwtValidation
+
+        - id: billing-service-route
+          uri: http://host.docker.internal:4001
+          predicates:
+            - Path=/api/bills/**
+          filters:
+            - StripPrefix=1
+            - JwtValidation
+
+        - id: analytics-service-route
+          uri: http://host.docker.internal:4003
+          predicates:
+            - Path=/api/analytics/**
+          filters:
+            - StripPrefix=1
+            - RoleBasedAuth
+
+        - id: auth-service-route
+          uri: http://host.docker.internal:4002
+          predicates:
+            - Path=/**
+          filters:
+            - StripPrefix=1
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.netty.http.client: DEBUG
+
