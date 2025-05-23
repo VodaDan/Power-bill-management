@@ -4,7 +4,7 @@ import com.pm.billingservice.dto.BillRequestDTO;
 import com.pm.billingservice.dto.BillResponseDTO;
 import com.pm.billingservice.model.Bill;
 import org.springframework.cglib.core.Local;
-
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -23,7 +23,7 @@ public class BillMapper {
     public static Bill toModel(BillRequestDTO billRequestDTO) {
         Bill bill = new Bill();
         bill.setCustomerId(UUID.fromString(billRequestDTO.getCustomerId()));
-        bill.setAmount(Double.valueOf(billRequestDTO.getAmount()));
+        bill.setAmount(BigDecimal.valueOf(Double.valueOf(billRequestDTO.getAmount())));
         bill.setDueDate(LocalDate.parse(billRequestDTO.getDueDate()));
         bill.setIssueDate(LocalDate.parse(billRequestDTO.getIssueDate()));
         return bill;

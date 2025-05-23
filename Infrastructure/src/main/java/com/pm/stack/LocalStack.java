@@ -29,14 +29,14 @@ public class LocalStack extends Stack {
         this.vpc = createVpc();
 
         // Create Database instances
-        DatabaseInstance customerServiceDb = createDatabase("PB-CustomerServiceDB","pb-customer-service-db");
-        DatabaseInstance billsServiceDb = createDatabase("PB-BillsServiceDB","pb-bills-service-db");
-        DatabaseInstance authServiceDb = createDatabase("PB-AuthServiceDB","pb-auth-service-db");
-        DatabaseInstance analyticsServiceDb = createDatabase("PB-AnalyticsServiceDB","pb-analytics-service-db");
+        DatabaseInstance customerServiceDb = createDatabase("CustomerServiceDB","customer-service-db");
+        DatabaseInstance billingServiceDb = createDatabase("BillingServiceDB","billing-service-db");
+        DatabaseInstance authServiceDb = createDatabase("AuthServiceDB","auth-service-db");
+        DatabaseInstance analyticsServiceDb = createDatabase("AnalyticsServiceDB","analytics-service-db");
 
         // Create Database Healthchecks
         CfnHealthCheck customerDbHealthCheck = createDbHealthCheck(customerServiceDb,"CustomerServiceDbHealthCheck");
-        CfnHealthCheck billsDbHealthCheck = createDbHealthCheck(billsServiceDb,"BillsServiceDbHealthCheck");
+        CfnHealthCheck billingDbHealthCheck = createDbHealthCheck(billingServiceDb,"BillingServiceDbHealthCheck");
         CfnHealthCheck authDbHealthCheck = createDbHealthCheck(authServiceDb,"AuthServiceDbHealthCheck");
         CfnHealthCheck analyticsDbHealthCheck = createDbHealthCheck(analyticsServiceDb,"AnalyticsServiceDbHealthCheck");
 
@@ -48,24 +48,25 @@ public class LocalStack extends Stack {
 
         // Create Fargate Service
         FargateService customerService = createFargateService("CustomerService",
-                "pb-customer-service",
+                "customer-service",
                 List.of(4000),
-                customerServiceDb,Map.of(
+                customerServiceDb,
+                Map.of(
                 "BILLING_SERVICE_ADDRESS", "host.docker.internal",
                 "BILLING_SERVICE_GRPC_PORT", "9001"
                 ));
 
-        FargateService billsService = createFargateService("BillsService","pb-bills-service",List.of(4001),billsServiceDb,null);
+        FargateService billingService = createFargateService("BillingService","billing-service",List.of(4001),billingServiceDb,null);
 
         FargateService authService = createFargateService("AuthService",
-                "pb-auth-service",
+                "auth-service",
                 List.of(4002),
                 authServiceDb,
                 Map.of("JWT_SECRET", "XUpOzxntvH2vRW+lzOYKXJgB/mwVcb6ni9S7Qz3xL6M=")
                 );
 
         FargateService analyticsService = createFargateService("AnalyticsService",
-                "pb-analytics-service",
+                "analytics-service",
                 List.of(4003),
                 analyticsServiceDb,
                 null);
@@ -74,10 +75,11 @@ public class LocalStack extends Stack {
         customerService.getNode().addDependency(customerServiceDb);
         customerService.getNode().addDependency(customerDbHealthCheck);
         customerService.getNode().addDependency(mskCluster);
+        customerService.getNode().addDependency(billingService);
 
-        billsService.getNode().addDependency(billsServiceDb);
-        billsService.getNode().addDependency(billsDbHealthCheck);
-        billsService.getNode().addDependency(mskCluster);
+        billingService.getNode().addDependency(billingServiceDb);
+        billingService.getNode().addDependency(billingDbHealthCheck);
+        billingService.getNode().addDependency(mskCluster);
 
         analyticsService.getNode().addDependency(analyticsServiceDb);
         analyticsService.getNode().addDependency(analyticsDbHealthCheck);
@@ -87,7 +89,8 @@ public class LocalStack extends Stack {
         authService.getNode().addDependency(authDbHealthCheck);
 
         // Create API gateway service
-        createApiGatewayService();
+        ApplicationLoadBalancedFargateService apiGateway =  createApiGatewayService();
+        apiGateway.getNode().addDependency(authService);
     };
 
     public Vpc createVpc() {
@@ -131,9 +134,9 @@ public class LocalStack extends Stack {
                 .create(this,"MskCluster")
                 .clusterName("kafka-cluster")
                 .kafkaVersion("2.8.0")
-                .numberOfBrokerNodes(1)
+                .numberOfBrokerNodes(2)
                 .brokerNodeGroupInfo(CfnCluster.BrokerNodeGroupInfoProperty.builder()
-                        .instanceType("kafka.m5.large")
+                        .instanceType("kafka.m5.xlarge")
                         .clientSubnets(vpc.getPrivateSubnets().stream()
                                 .map(ISubnet::getSubnetId)
                                 .collect(Collectors.toList()))
@@ -158,7 +161,7 @@ public class LocalStack extends Stack {
                                                  Map<String, String> additionalEnvVars) {
 
         FargateTaskDefinition taskDefinition =
-                FargateTaskDefinition.Builder.create(this, id+ " Task")
+                FargateTaskDefinition.Builder.create(this, id + "Task")
                         .cpu(256)
                         .memoryLimitMiB(512)
                         .build();
@@ -174,7 +177,7 @@ public class LocalStack extends Stack {
                                         .build())
                                 .toList())
                         .logging(LogDriver.awsLogs(AwsLogDriverProps.builder()
-                                        .logGroup(LogGroup.Builder.create(this, id + " LogGroup")
+                                        .logGroup(LogGroup.Builder.create(this, id + "LogGroup")
                                                 .logGroupName("/ecs/" + imageName)
                                                 .removalPolicy(RemovalPolicy.DESTROY)
                                                 .retention(RetentionDays.ONE_DAY)
@@ -216,7 +219,7 @@ public class LocalStack extends Stack {
 
     }
 
-    private void createApiGatewayService () {
+    private ApplicationLoadBalancedFargateService createApiGatewayService () {
         FargateTaskDefinition taskDefinition = FargateTaskDefinition.Builder.create(this, "APIGatewayTaskDefinition")
                 .cpu(256)
                 .memoryLimitMiB(512)
@@ -226,7 +229,7 @@ public class LocalStack extends Stack {
                 .image(ContainerImage.fromRegistry("api-gateway"))
                 .environment(Map.of(
                         "SPRING_PROFILE_ACTIVE", "prod",
-                        "AUTH_SERVICE_URL","http://host.docker.internal:4005"
+                        "AUTH_SERVICE_URL","http://host.docker.internal:4002"
                 ))
                 .portMappings(List.of(4005).stream()
                         .map(port -> PortMapping.builder()
@@ -254,6 +257,8 @@ public class LocalStack extends Stack {
                 .desiredCount(1)
                 .healthCheckGracePeriod(Duration.seconds(60))
                 .build();
+
+        return apiGateway;
 
     }
 

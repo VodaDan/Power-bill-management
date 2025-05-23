@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,7 +44,7 @@ public class BillingService {
         bill.setCustomerId(UUID.fromString(billingRequest.getCustomerId()));
         bill.setIssueDate(LocalDate.now());
         bill.setDueDate(bill.getIssueDate().plusDays(30));
-        bill.setAmount(Double.valueOf(billingRequest.getAmount()));
+        bill.setAmount(BigDecimal.valueOf(Double.valueOf(billingRequest.getAmount())));
         Bill newBill = billRepository.save(bill);
         kafkaProducer.sendBillCreateEvent(newBill);
         return bill;

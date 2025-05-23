@@ -1,5 +1,5 @@
 ### GET request to generate analytics
-GET http://localhost:4003/analytics
+GET lb-d87911c0.elb.localhost.localstack.cloud:4003/analytics
 ###
 
 GET http://localhost:4005/api/analytics

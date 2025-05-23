@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -23,7 +24,7 @@ public class Bill {
     private LocalDate dueDate;
 
     @NotNull
-    private double amount;
+    private BigDecimal amount;
 
     @NotNull
     private UUID customerId;
@@ -52,11 +53,11 @@ public class Bill {
         this.dueDate = dueDate;
     }
 
-    public double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 

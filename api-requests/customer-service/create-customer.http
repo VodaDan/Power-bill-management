@@ -9,6 +9,18 @@ Content-Type: application/json
   "registerDate": "2024-04-25"
 }
 
+
+### POST request to create a new customer
+POST lb-d87911c0.elb.localhost.localstack.cloud:4000/customers
+Content-Type: application/json
+
+{
+  "name": "Pop Ion",
+  "email": "pop.ion@yahoo.com",
+  "address": "newAddressas",
+  "registerDate": "2024-04-25"
+}
+
 ###
 
 POST http://localhost:4005/api/customers
